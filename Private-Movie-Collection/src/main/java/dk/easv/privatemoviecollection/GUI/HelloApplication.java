@@ -1,4 +1,4 @@
-package dk.easv.privatemoviecollection;
+package dk.easv.privatemoviecollection.GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
