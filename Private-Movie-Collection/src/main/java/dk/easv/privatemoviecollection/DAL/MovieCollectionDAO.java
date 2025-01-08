@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MovieCollectionDAO implements IMovieDataAccess  {
@@ -31,12 +32,12 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 double rating = rs.getDouble("rating");
-                String genre = rs.getString("genre");
                 String path = rs.getString("filelink");
                 double lastviewed = rs.getDouble("lastview");
+                String genre = rs.getString("genre");
                 double duration = rs.getDouble("duration");
 
-                MovieCollection movie = new MovieCollection(id,name,rating,genre,path,lastviewed,duration);
+                MovieCollection movie = new MovieCollection(id,name,rating,path,lastviewed,genre,duration);
                 movieCollections.add(movie);
             }
             return movieCollections;
@@ -44,6 +45,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
             e.printStackTrace();
             throw new Exception("Couldn't get movies from database");
         }
+
     }
 
     @Override

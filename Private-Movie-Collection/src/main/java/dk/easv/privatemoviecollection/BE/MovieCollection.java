@@ -8,10 +8,10 @@ public class MovieCollection {
     private double rating;
     private String path;
     private double lastviewed;
-    private final double duration;
+    private double duration;
 
 
-    public MovieCollection(int id, String name, double rating, String genre, String path, double lastviewed, double duration) {
+    public MovieCollection(int id, String name, double rating,String path,double lastviewed, String genre, double duration) {
         this.id = id;
         this.name = name;
         this.rating = rating;
@@ -20,6 +20,8 @@ public class MovieCollection {
         this.lastviewed = lastviewed;
         this.duration = duration;
     }
+
+
 
     public int getId() {
         return id;
@@ -63,5 +65,13 @@ public class MovieCollection {
 
     public void setLastviewed(double lastviewed) {
         this.lastviewed = lastviewed;
+    }
+
+    public double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(double duration) {
+        this.duration = duration;
     }
 }
