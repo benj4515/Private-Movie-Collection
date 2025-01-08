@@ -9,9 +9,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.media.MediaView?>
 
-<VBox alignment="CENTER" prefHeight="810.0" prefWidth="1865.0" spacing="20.0" style="-fx-background-color: #000000;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="dk.easv.privatemoviecollection.GUI.Controller.HelloController">
+<VBox alignment="CENTER" prefHeight="955.0" prefWidth="2165.0" spacing="20.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.privatemoviecollection.GUI.Controller.MovieCollectionController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -20,12 +19,12 @@
          <children>
             <HBox prefHeight="35.0" prefWidth="1452.0">
                <children>
-                  <TextField promptText="Search..." style="-fx-background-color: grey; -fx-background-radius: 10;" />
+                  <TextField fx:id="txtSearchGenre" promptText="Search..." style="-fx-background-color: grey; -fx-background-radius: 10;" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField promptText="Search..." style="-fx-background-color: grey; -fx-background-radius: 10;" />
+                  <TextField fx:id="txtSearchMovie" promptText="Search..." style="-fx-background-color: grey; -fx-background-radius: 10;" />
                </children>
             </HBox>
          </children>
@@ -37,7 +36,7 @@
                   <VBox prefHeight="575.0" prefWidth="124.0">
                      <children>
                         <Label text="Categories" textFill="WHITE" />
-                        <TableView prefHeight="558.0" prefWidth="103.0">
+                        <TableView fx:id="tblGenre" prefHeight="558.0" prefWidth="103.0">
                           <columns>
                             <TableColumn prefWidth="122.0" text="Genre" />
                           </columns>
@@ -54,7 +53,7 @@
                   <VBox prefHeight="575.0" prefWidth="226.0">
                      <children>
                         <Label text="Movies in selected genre" textFill="WHITE" />
-                        <ListView prefHeight="575.0" prefWidth="238.0">
+                        <ListView fx:id="lstGenreMovies" prefHeight="575.0" prefWidth="238.0">
                            <opaqueInsets>
                               <Insets left="10.0" />
                            </opaqueInsets>
@@ -66,20 +65,16 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="575.0" prefWidth="1072.0" style="-fx-background-color: grey;">
+            <HBox prefHeight="575.0" prefWidth="1072.0" style="-fx-background-color: grey;" />
+            <HBox prefHeight="575.0" prefWidth="582.0">
                <children>
-                  <MediaView fitHeight="200.0" fitWidth="200.0" />
-               </children>
-            </HBox>
-            <HBox prefHeight="575.0" prefWidth="378.0">
-               <children>
-                  <TableView prefHeight="575.0" prefWidth="377.0">
+                  <TableView fx:id="tblMovies" prefHeight="575.0" prefWidth="563.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Movie" />
-                      <TableColumn prefWidth="75.0" text="Genre" />
-                        <TableColumn prefWidth="75.0" text="Duration" />
-                        <TableColumn prefWidth="75.0" text="Last opened" />
-                        <TableColumn prefWidth="75.0" text="Rating" />
+                      <TableColumn fx:id="colMovie" prefWidth="229.0" text="Movie" />
+                      <TableColumn fx:id="colGenre" prefWidth="88.0" text="Genre" />
+                        <TableColumn fx:id="colDuration" prefWidth="63.0" text="Duration" />
+                        <TableColumn fx:id="colLastViewed" prefWidth="114.0" text="Last opened" />
+                        <TableColumn fx:id="colRating" prefWidth="61.0" text="Rating" />
                     </columns>
                   </TableView>
                </children>
@@ -92,12 +87,12 @@
                <children>
                   <HBox prefHeight="63.0" prefWidth="88.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
+                        <Button fx:id="btnAddGenre" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
+                        <Button fx:id="btnDeleteGenre" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
                      </children>
                   </HBox>
                </children>
@@ -109,17 +104,17 @@
                      <children>
                         <HBox prefHeight="63.0" prefWidth="115.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Last" />
+                              <Button fx:id="btnLast" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Last" />
                            </children>
                         </HBox>
                         <HBox prefHeight="63.0" prefWidth="130.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Play" />
+                              <Button fx:id="btnPlay" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Play" />
                            </children>
                         </HBox>
                         <HBox prefHeight="63.0" prefWidth="60.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="57.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Next" />
+                              <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="40.0" prefWidth="57.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Next" />
                            </children>
                         </HBox>
                         <HBox prefHeight="63.0" prefWidth="31.0" />
@@ -132,12 +127,12 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
+                        <Button fx:id="btnAddMovie" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
+                        <Button fx:id="btnDeleteMovie" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
                      </children>
                   </HBox>
                </children>
