@@ -1,8 +1,9 @@
 package dk.easv.privatemoviecollection.BE;
 
+import dk.easv.privatemoviecollection.BLL.MovieCollectionManager;
+
 public class MovieCollection {
 
-    private final int id;
     private String name;
     private String genre;
     private double rating;
@@ -11,8 +12,7 @@ public class MovieCollection {
     private double duration;
 
 
-    public MovieCollection(int id, String name, double rating,String path,double lastviewed, String genre, double duration) {
-        this.id = id;
+    public MovieCollection(String name, double rating,String path,double lastviewed, String genre, double duration) {
         this.name = name;
         this.rating = rating;
         this.genre = genre;
@@ -21,11 +21,20 @@ public class MovieCollection {
         this.duration = duration;
     }
 
+    /*public MovieCollection createMovie (new MovieCollection newMovie) {
+        MovieCollection movie = null;
+        try {
+            movie = new MovieCollection.createMovie(newMovie);
+            return MovieCollectionManager.movie(newMovie);
+        }
 
-
-    public int getId() {
-        return id;
     }
+
+     */
+
+
+
+
 
     public String getName() {
         return name;

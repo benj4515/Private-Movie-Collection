@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
-
 public class MovieCollectionModel {
 
     private final ObservableList<MovieCollection> moviesToBeViewed;
@@ -16,10 +15,31 @@ public class MovieCollectionModel {
 
     private final MovieCollectionDAO movieCollectionDAO = new MovieCollectionDAO();
 
+
     public MovieCollectionModel() throws Exception {
         movieCollectionManager = new MovieCollectionManager();
         moviesToBeViewed = FXCollections.observableArrayList();
         moviesToBeViewed.addAll(movieCollectionManager.getAllMovies());
     }
-    public ObservableList<MovieCollection> getObservableMovies() { return moviesToBeViewed; }
+
+    public ObservableList<MovieCollection> getObservableMovies() {
+        return moviesToBeViewed;
+    }
+
+    public void createMovie(MovieCollection newMovie) throws Exception {
+        MovieCollection m = null;
+        try {
+            m = movieCollectionManager.createMovie(newMovie);
+            moviesToBeViewed.add(m);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+
+        }
+    }
+
+    public void refreshMovies() throws Exception {
+        // this refreshes the tableview with the method from myTunesManager
+        moviesToBeViewed.clear();
+        moviesToBeViewed.addAll(movieCollectionManager.getAllMovies());
+    }
 }

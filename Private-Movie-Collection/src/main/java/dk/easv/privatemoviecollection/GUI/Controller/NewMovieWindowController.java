@@ -1,13 +1,16 @@
 package dk.easv.privatemoviecollection.GUI.Controller;
 
+import dk.easv.privatemoviecollection.BE.MovieCollection;
+import dk.easv.privatemoviecollection.GUI.Model.MovieCollectionModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class NewMovieWindowController {
-
     @FXML
     private TextField movieNameField;
     @FXML
@@ -20,21 +23,59 @@ public class NewMovieWindowController {
     private TextField ratingField;
     @FXML
     private TextField fileLocationField;
+    @FXML
+    private TextField TmdbUrlField;
+
+    MovieCollectionModel MovieCollectionModel;
+    @FXML
+    private Button addMovieButton;
+    @FXML
+    private Button cancelButton;
+    private MovieCollectionController movieCollectionController;
 
     @FXML
-    private void handleSubmit() {
-        String movieName = movieNameField.getText();
-        String genre = genreField.getText();
-        String duration = durationField.getText();
-        String lastOpened = lastOpenedField.getText();
-        String rating = ratingField.getText();
-        String fileLocation = fileLocationField.getText();
 
-        if (movieName.isEmpty() || genre.isEmpty() || duration.isEmpty() || lastOpened.isEmpty() || rating.isEmpty() || fileLocation.isEmpty()) {
+
+
+    private void displayError(Throwable t) {
+        // This display if any error occours
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Something went wrong");
+        alert.setHeaderText(t.getMessage());
+        alert.showAndWait();
+    }
+
+    public NewMovieWindowController(){
+
+        try{
+            MovieCollectionModel = new MovieCollectionModel();
+
+        } catch(Exception e){
+            displayError(e);
+            e.printStackTrace();
+        }
+    }
+    public void setMyTunesController(MovieCollectionController movieCollectionController) {
+        this.movieCollectionController = movieCollectionController;
+    }
+
+    @FXML
+    private void handleSubmit() throws Exception {
+        String name = movieNameField.getText();
+        String genre = genreField.getText();
+        double duration = durationField.getText().isEmpty() ? 0.0 : Double.parseDouble(durationField.getText());
+        double lastviewed = lastOpenedField.getText().isEmpty() ? 0.0 : Double.parseDouble(lastOpenedField.getText());
+        double rating = ratingField.getText().isEmpty() ? 0.0 : Double.parseDouble(ratingField.getText());
+        String path = fileLocationField.getText();
+        
+
+       /* if (name.isEmpty() || genre.isEmpty() || duration.isEmpty() || lastviewed.isEmpty() || rating.isEmpty() || path.isEmpty()) {
             showAlert("Validation Error", "Please fill in all fields.");
             return;
         }
 
+        */
+        /*
         try {
             int durationInt = Integer.parseInt(duration);
             if (durationInt <= 0) {
@@ -57,14 +98,32 @@ public class NewMovieWindowController {
             return;
         }
 
+         */
 
-        System.out.println("Movie Name: " + movieName);
+
+        System.out.println("Movie Name: " + name);
         System.out.println("Genre: " + genre);
         System.out.println("Duration: " + duration);
-        System.out.println("Last Opened: " + lastOpened);
+        System.out.println("Last Opened: " + lastviewed);
         System.out.println("Rating: " + rating);
-        System.out.println("File Location: " + fileLocation);
+        System.out.println("File Location: " + path);
+
+        MovieCollection newMovie = new MovieCollection(name,rating,path,lastviewed,genre,duration);
+
+        MovieCollectionModel.createMovie(newMovie);
+        System.out.println("New Movie Added" + newMovie);
+
+
+
+        if(movieCollectionController != null){
+            movieCollectionController.tableRefresh();
+        }
+
+        Stage stage = (Stage) addMovieButton.getScene().getWindow();
+        stage.close();
     }
+
+
 
     @FXML
     private void handleCancel() {
@@ -78,5 +137,9 @@ public class NewMovieWindowController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void setParent(MovieCollectionController parentParam) {
+        this.movieCollectionController = parentParam;
     }
 }

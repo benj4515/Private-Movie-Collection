@@ -3,10 +3,7 @@ package dk.easv.privatemoviecollection.DAL;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +34,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 String genre = rs.getString("genre");
                 double duration = rs.getDouble("duration");
 
-                MovieCollection movie = new MovieCollection(id,name,rating,path,lastviewed,genre,duration);
+                MovieCollection movie = new MovieCollection(name,rating,path,lastviewed,genre,duration);
                 movieCollections.add(movie);
             }
             return movieCollections;
@@ -50,6 +47,26 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
 
     @Override
     public MovieCollection createMovie(MovieCollection newMovie) throws Exception {
+
+        String sql ="INSERT into dbo.Movies (name, rating, filelink, lastview, genre, duration) VALUES (?, ?, ?, ?, ?, ?)";
+        DBConnector dbConnector = new DBConnector();
+
+        try (Connection conn = dbConnector.getConnection()){
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setString(1, newMovie.getName());
+            stmt.setDouble(2, newMovie.getRating());
+            stmt.setString(3, newMovie.getPath());
+            stmt.setDouble(4, newMovie.getLastviewed());
+            stmt.setString(5, newMovie.getGenre());
+            stmt.setDouble(6, newMovie.getDuration());
+
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+            throw new Exception("Couldn't create movie in database");
+        }
+
         return null;
     }
 

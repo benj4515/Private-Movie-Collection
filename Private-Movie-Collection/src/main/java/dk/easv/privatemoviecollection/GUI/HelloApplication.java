@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         //System.out.println();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/dk/easv/privatemoviecollection/MovieCollection.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 1020, 740);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
