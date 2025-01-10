@@ -5,6 +5,7 @@ import dk.easv.privatemoviecollection.BLL.MovieCollectionManager;
 import dk.easv.privatemoviecollection.DAL.MovieCollectionDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.util.List;
 
 
 public class MovieCollectionModel {
@@ -41,6 +42,13 @@ public class MovieCollectionModel {
         // this refreshes the tableview with the method from myTunesManager
         moviesToBeViewed.clear();
         moviesToBeViewed.addAll(movieCollectionManager.getAllMovies());
+    }
+
+    public void searchMovies(String query) throws Exception {
+
+        List<MovieCollection> searchResults = movieCollectionManager.searchMovies(query);
+        moviesToBeViewed.clear();
+        moviesToBeViewed.addAll(searchResults);
     }
 
     public void updateMovie(MovieCollection updatedMovie) throws Exception {

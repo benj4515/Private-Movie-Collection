@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,6 +27,8 @@ public class MovieCollectionController implements Initializable {
     public TableColumn<MovieCollection, String> colRating;
     public Button btnDeleteMovie;
     private MovieCollectionModel movieCollectionModel;
+    @FXML
+    private TextField txtSearchMovie;
 
 
     public MovieCollectionController() {
@@ -64,6 +63,15 @@ public class MovieCollectionController implements Initializable {
         colRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
 
         tblMovies.setItems(movieCollectionModel.getObservableMovies());
+
+        txtSearchMovie.textProperty().addListener((_, _, newValue) -> {
+            try {
+                movieCollectionModel.searchMovies(newValue);
+            } catch (Exception e) {
+                displayError(e);
+                e.printStackTrace();
+            }
+        });
 
     }
 

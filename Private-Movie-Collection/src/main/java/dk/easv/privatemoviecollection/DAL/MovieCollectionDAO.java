@@ -33,7 +33,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 String genre = rs.getString("genre");
                 double duration = rs.getDouble("duration");
 
-                MovieCollection movie = new MovieCollection(name,rating,path,lastviewed,genre,duration);
+                MovieCollection movie = new MovieCollection(id,name,rating,path,lastviewed,genre,duration);
                 movieCollections.add(movie);
             }
             return movieCollections;

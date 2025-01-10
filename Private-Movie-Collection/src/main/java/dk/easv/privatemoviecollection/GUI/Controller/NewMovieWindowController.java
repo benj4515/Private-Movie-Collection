@@ -61,6 +61,7 @@ public class NewMovieWindowController {
 
     @FXML
     private void handleSubmit() throws Exception {
+
         String name = movieNameField.getText();
         String genre = genreField.getText();
         double duration = durationField.getText().isEmpty() ? 0.0 : Double.parseDouble(durationField.getText());
