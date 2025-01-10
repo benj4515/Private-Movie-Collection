@@ -24,5 +24,11 @@ public class MovieCollectionManager {
         return dataAccess.createMovie(newMovie);
     }
 
+    public void updateMovie(MovieCollection updatedMovie) throws Exception {
+        dataAccess.updateMovie(updatedMovie);
+    }
 
+    public void deleteMovie(MovieCollection selectedMovie) throws Exception {
+        dataAccess.deleteMovie(selectedMovie);
+    }
 }

@@ -5,7 +5,6 @@ import dk.easv.privatemoviecollection.BE.MovieCollection;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MovieCollectionDAO implements IMovieDataAccess  {
@@ -71,9 +70,63 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
     }
 
     @Override
+    public void updateMovie(MovieCollection movie) throws Exception {
+
+        //Collect edited data from movie object and updates the value in the database ( Movie table)
+      String sql = "UPDATE dbo.Movies SET name = ?, rating = ?, filelink = ?, lastview = ?, genre = ?, duration = ? WHERE id = ?";
+
+            try(Connection conn = dbConnector.getConnection()){
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setString(1,movie.getName());
+                stmt.setDouble(2,movie.getRating());
+                stmt.setString(3,movie.getPath());
+                stmt.setDouble(4,movie.getLastviewed());
+                stmt.setString(5,movie.getGenre());
+                stmt.setDouble(6,movie.getDuration());
+                //stmt.setInt(7,movie.getId());
+
+                //Execute the update statement
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                throw new Exception("Couldn't update movie in database",e);
+            }
+    }
+
+    /*
+    @Override
     public void deleteMovie(MovieCollection movie) throws Exception {
+        //Deletes a movie from the database - movie table
+        String sql = "DELETE FROM dbo.Movies WHERE id = ?"
+                + "DELETE FROM dbo.CatMovies WHERE id = ?";
+
+        try(Connection conn = dbConnector.getConnection()){
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,movie.getId());
+            stmt.setInt(2,movie.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new Exception("Couldn't delete movie from database",e);
+        }
 
     }
+
+     */
+
+@Override
+public void deleteMovie(MovieCollection movie) throws Exception {
+    // Deletes a movie from the database - movie table
+    String sql = "DELETE FROM dbo.Movies WHERE id = ?;";
+    //+ " DELETE FROM dbo.CatMovies WHERE id = ?";
+
+    try (Connection conn = dbConnector.getConnection()) {
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, movie.getId());
+        //stmt.setInt(2, movie.getId());
+        stmt.executeUpdate();
+    } catch (SQLException e) {
+        throw new Exception("Couldn't delete movie from database", e);
+    }
+}
 
     @Override
     public void createGenre(String genre, List<MovieCollection> selectedMovies) throws Exception {

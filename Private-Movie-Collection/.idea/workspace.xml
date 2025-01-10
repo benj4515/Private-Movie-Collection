@@ -5,29 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8ef1b59-a2ce-488d-b846-f94bd7817da0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Movies/I_Cant_Believe_Youve_Done_This.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/NewMovieWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/NewMovieWindow.fxml" afterDir="false" />
-    </list>
-    <list id="f2f2fb27-5841-483d-8715-8cf5b86a82cb" name="Changes by mathi" comment="">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
-    </list>
-    <list id="1c3fd328-cf32-457c-ab49-8415a131d8fa" name="Changes by victo" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
+    <list id="f2f2fb27-5841-483d-8715-8cf5b86a82cb" name="Changes by mathi" comment="" />
+    <list id="1c3fd328-cf32-457c-ab49-8415a131d8fa" name="Changes by victo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,58 +43,9 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/benj4515/Private-Movie-Collection.git",
-    "accountId": "00505f4f-7436-466f-8203-efc3e803c8af"
+    "accountId": "80ca7172-d982-4202-9eac-1f3f7ce4ab8f"
   }
 }]]></component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="5" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="3" end1="3" start2="6" end2="7" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="9" end1="10" start2="13" end2="13" changelist="1c3fd328-cf32-457c-ab49-8415a131d8fa" />
-        <range start1="22" end1="22" start2="25" end2="60" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="24" end1="26" start2="62" end2="64" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="27" end1="33" start2="65" end2="72" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="37" end1="37" start2="76" end2="78" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="59" end1="59" start2="100" end2="101" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="60" end1="61" start2="102" end2="104" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="63" end1="64" start2="106" end2="107" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="65" end1="66" start2="108" end2="123" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="67" end1="67" start2="124" end2="126" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="81" end1="81" start2="140" end2="144" changelist="1c3fd328-cf32-457c-ab49-8415a131d8fa" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="1c3fd328-cf32-457c-ab49-8415a131d8fa" />
-        <range start1="4" end1="5" start2="6" end2="6" changelist="f2f2fb27-5841-483d-8715-8cf5b86a82cb" />
-        <range start1="13" end1="15" start2="14" end2="15" changelist="f2f2fb27-5841-483d-8715-8cf5b86a82cb" />
-        <range start1="22" end1="22" start2="22" end2="33" changelist="f2f2fb27-5841-483d-8715-8cf5b86a82cb" />
-        <range start1="25" end1="28" start2="36" end2="37" changelist="1c3fd328-cf32-457c-ab49-8415a131d8fa" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="12" end1="15" start2="13" end2="16" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="21" end1="21" start2="22" end2="27" changelist="f2f2fb27-5841-483d-8715-8cf5b86a82cb" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java">
-      <ranges>
-        <range start1="9" end1="10" start2="9" end2="9" changelist="1c3fd328-cf32-457c-ab49-8415a131d8fa" />
-        <range start1="17" end1="17" start2="16" end2="17" changelist="f2f2fb27-5841-483d-8715-8cf5b86a82cb" />
-        <range start1="23" end1="24" start2="23" end2="44" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java">
-      <ranges>
-        <range start1="5" end1="9" start2="5" end2="6" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="39" end1="40" start2="36" end2="37" changelist="f2f2fb27-5841-483d-8715-8cf5b86a82cb" />
-        <range start1="52" end1="52" start2="49" end2="69" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-      </ranges>
-    </file>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -121,31 +61,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DBConnector.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Benjamin Davgaard/Documents/GitHub/Private-Movie-Collection/Private-Movie-Collection/src/main/resources/Movies",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.38965517",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DBConnector.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Benjamin Davgaard/Documents/GitHub/Private-Movie-Collection/Private-Movie-Collection/src/main/resources/Movies&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.38965517&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Benjamin Davgaard\Documents\GitHub\Private-Movie-Collection\Private-Movie-Collection\src\main\resources\Movies" />
@@ -191,8 +131,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -209,6 +149,7 @@
       <workItem from="1736325439915" duration="11616000" />
       <workItem from="1736339606152" duration="5018000" />
       <workItem from="1736411150552" duration="11695000" />
+      <workItem from="1736459670223" duration="11279000" />
     </task>
     <servers />
   </component>

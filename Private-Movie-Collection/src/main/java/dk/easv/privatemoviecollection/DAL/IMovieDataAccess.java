@@ -11,6 +11,8 @@ public interface IMovieDataAccess {
 
     MovieCollection createMovie(MovieCollection newMovie) throws Exception;
 
+    void updateMovie(MovieCollection movie) throws Exception;
+
     void deleteMovie(MovieCollection movie) throws Exception;
 
     void createGenre(String genre, List<MovieCollection> selectedMovies) throws Exception;
