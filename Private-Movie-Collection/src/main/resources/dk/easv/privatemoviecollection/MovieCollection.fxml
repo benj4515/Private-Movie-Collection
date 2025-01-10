@@ -132,7 +132,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnDeleteMovie" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
+                        <Button fx:id="btnDeleteMovie" mnemonicParsing="false" onAction="#onDeleteMovieButtonClick" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
                      </children>
                   </HBox>
                </children>

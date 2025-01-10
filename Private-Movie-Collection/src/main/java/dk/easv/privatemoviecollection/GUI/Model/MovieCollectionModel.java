@@ -5,6 +5,7 @@ import dk.easv.privatemoviecollection.BLL.MovieCollectionManager;
 import dk.easv.privatemoviecollection.DAL.MovieCollectionDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import java.util.List;
 
 
 public class MovieCollectionModel {
@@ -41,5 +42,45 @@ public class MovieCollectionModel {
         // this refreshes the tableview with the method from myTunesManager
         moviesToBeViewed.clear();
         moviesToBeViewed.addAll(movieCollectionManager.getAllMovies());
+    }
+
+    public void searchMovies(String query) throws Exception {
+
+        List<MovieCollection> searchResults = movieCollectionManager.searchMovies(query);
+        moviesToBeViewed.clear();
+        moviesToBeViewed.addAll(searchResults);
+    }
+
+    public void updateMovie(MovieCollection updatedMovie) throws Exception {
+        try {
+            movieCollectionManager.updateMovie(updatedMovie);
+
+            //Find the movie in the observable list and update it
+            int index = moviesToBeViewed.indexOf(updatedMovie);
+
+            if (index != -1) {
+                //Match, update movie
+                MovieCollection m = moviesToBeViewed.get(index);
+                m.setName(updatedMovie.getName());
+                m.setRating(updatedMovie.getRating());
+                m.setGenre(updatedMovie.getGenre());
+                m.setPath(updatedMovie.getPath());
+                m.setLastviewed(updatedMovie.getLastviewed());
+                m.setDuration(updatedMovie.getDuration());
+
+            } else {
+                //No match, throw exception
+                throw new Exception("Movie not found in the list");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteMovie(MovieCollection selectedMovie) throws Exception {
+        //delete movie from database
+        movieCollectionManager.deleteMovie(selectedMovie);
+        //delete movie from observable list
+        moviesToBeViewed.remove(selectedMovie);
     }
 }

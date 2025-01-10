@@ -10,6 +10,7 @@ public class MovieCollection {
     private String path;
     private double lastviewed;
     private double duration;
+    private int id;
 
 
     public MovieCollection(String name, double rating,String path,double lastviewed, String genre, double duration) {
@@ -21,16 +22,20 @@ public class MovieCollection {
         this.duration = duration;
     }
 
-    /*public MovieCollection createMovie (new MovieCollection newMovie) {
-        MovieCollection movie = null;
-        try {
-            movie = new MovieCollection.createMovie(newMovie);
-            return MovieCollectionManager.movie(newMovie);
-        }
-
+    //Overloaded constructor to allow us to use getId
+    public MovieCollection(int id, String name, double rating,String path,double lastviewed, String genre, double duration) {
+        this.id = id;
+        this.name = name;
+        this.rating = rating;
+        this.genre = genre;
+        this.path = path;
+        this.lastviewed = lastviewed;
+        this.duration = duration;
     }
 
-     */
+
+
+
 
 
 
@@ -83,4 +88,6 @@ public class MovieCollection {
     public void setDuration(double duration) {
         this.duration = duration;
     }
+
+    public int getId() { return id; }
 }

@@ -9,13 +9,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,7 +25,11 @@ public class MovieCollectionController implements Initializable {
     public TableColumn<MovieCollection, String> colDuration;
     public TableColumn<MovieCollection, String> colLastViewed;
     public TableColumn<MovieCollection, String> colRating;
+    public Button btnDeleteMovie;
     private MovieCollectionModel movieCollectionModel;
+    @FXML
+    private TextField txtSearchMovie;
+
 
     public MovieCollectionController() {
 
@@ -48,15 +51,6 @@ public class MovieCollectionController implements Initializable {
         alert.showAndWait();
     }
 
-    /*public void initialize(MovieCollectionModel movieCollectionModel) {
-
-
-
-
-
-    }
-
-     */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,6 +63,15 @@ public class MovieCollectionController implements Initializable {
         colRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
 
         tblMovies.setItems(movieCollectionModel.getObservableMovies());
+
+        txtSearchMovie.textProperty().addListener((_, _, newValue) -> {
+            try {
+                movieCollectionModel.searchMovies(newValue);
+            } catch (Exception e) {
+                displayError(e);
+                e.printStackTrace();
+            }
+        });
 
     }
 
@@ -96,6 +99,25 @@ public class MovieCollectionController implements Initializable {
             displayError(e);
         }
         return null;
+    }
+
+    @FXML
+    private void onDeleteMovieButtonClick(ActionEvent actionEvent) throws Exception {
+        //Confirmation dialog
+        int answer = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this movie?", "Delete movie", JOptionPane.YES_NO_OPTION);
+
+        if (answer == JOptionPane.YES_OPTION) {
+            // Get the selected movie
+            MovieCollection selectedMovie = tblMovies.getSelectionModel().getSelectedItem();
+            if (selectedMovie != null) {
+                //delete the movie
+                movieCollectionModel.deleteMovie(selectedMovie);
+                System.out.println("Movie deleted");
+                tableRefresh();
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a movie to delete", "No movie selected", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
 
