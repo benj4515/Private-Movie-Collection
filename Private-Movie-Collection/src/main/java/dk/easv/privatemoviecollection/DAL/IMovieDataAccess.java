@@ -1,5 +1,6 @@
 package dk.easv.privatemoviecollection.DAL;
 
+import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public interface IMovieDataAccess {
 
     void createGenre(String genre, List<MovieCollection> selectedMovies) throws Exception;
 
-    //List<Genre> getAllGenre() throws Exception;
+    List<Genre> getAllGenres() throws Exception;
 
     List<MovieCollection> getMovieCollectionsByGenre(String genre) throws Exception;
 

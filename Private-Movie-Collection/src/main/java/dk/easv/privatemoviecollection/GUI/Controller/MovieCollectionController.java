@@ -1,5 +1,6 @@
 package dk.easv.privatemoviecollection.GUI.Controller;
 
+import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 import dk.easv.privatemoviecollection.GUI.Model.MovieCollectionModel;
 import javafx.collections.ObservableList;
@@ -29,6 +30,11 @@ public class MovieCollectionController implements Initializable {
     private MovieCollectionModel movieCollectionModel;
     @FXML
     private TextField txtSearchMovie;
+    @FXML
+    private TextField txtSearchGenre;
+    @FXML
+    private TableView<Genre> tblGenre;
+    public TableColumn<Genre, String> colCat;
 
 
     public MovieCollectionController() {
@@ -61,6 +67,7 @@ public class MovieCollectionController implements Initializable {
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         colLastViewed.setCellValueFactory(new PropertyValueFactory<>("lastViewed"));
         colRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        colCat.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
         tblMovies.setItems(movieCollectionModel.getObservableMovies());
 
@@ -72,6 +79,12 @@ public class MovieCollectionController implements Initializable {
                 e.printStackTrace();
             }
         });
+
+        try{
+            tblGenre.setItems(movieCollectionModel.getAllGenres());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 

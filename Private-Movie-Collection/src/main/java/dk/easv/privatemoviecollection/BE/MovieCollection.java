@@ -8,12 +8,12 @@ public class MovieCollection {
     private String genre;
     private double rating;
     private String path;
-    private double lastviewed;
+    private String lastviewed;
     private double duration;
     private int id;
 
 
-    public MovieCollection(String name, double rating,String path,double lastviewed, String genre, double duration) {
+    public MovieCollection(String name, double rating,String path,String lastviewed, String genre, double duration) {
         this.name = name;
         this.rating = rating;
         this.genre = genre;
@@ -23,7 +23,7 @@ public class MovieCollection {
     }
 
     //Overloaded constructor to allow us to use getId
-    public MovieCollection(int id, String name, double rating,String path,double lastviewed, String genre, double duration) {
+    public MovieCollection(int id, String name, double rating,String path,String lastviewed, String genre, double duration) {
         this.id = id;
         this.name = name;
         this.rating = rating;
@@ -73,11 +73,11 @@ public class MovieCollection {
         this.path = path;
     }
 
-    public double getLastviewed() {
+    public String getLastviewed() {
         return lastviewed;
     }
 
-    public void setLastviewed(double lastviewed) {
+    public void setLastviewed(String lastviewed) {
         this.lastviewed = lastviewed;
     }
 
