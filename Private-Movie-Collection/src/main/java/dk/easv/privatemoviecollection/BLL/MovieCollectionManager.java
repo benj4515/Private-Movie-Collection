@@ -1,5 +1,6 @@
 package dk.easv.privatemoviecollection.BLL;
 
+import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 
 import java.io.IOException;
@@ -39,5 +40,9 @@ public class MovieCollectionManager {
 
     public void deleteMovie(MovieCollection selectedMovie) throws Exception {
         dataAccess.deleteMovie(selectedMovie);
+    }
+
+    public List<Genre> getAllGenres() throws Exception {
+        return dataAccess.getAllGenres();
     }
 }

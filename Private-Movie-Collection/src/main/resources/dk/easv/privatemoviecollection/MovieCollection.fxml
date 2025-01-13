@@ -38,7 +38,7 @@
                         <Label text="Categories" textFill="WHITE" />
                         <TableView fx:id="tblGenre" prefHeight="558.0" prefWidth="103.0">
                           <columns>
-                            <TableColumn prefWidth="122.0" text="Genre" />
+                            <TableColumn fx:id="colCat" prefWidth="122.0" text="Genre" />
                           </columns>
                            <opaqueInsets>
                               <Insets right="10.0" />

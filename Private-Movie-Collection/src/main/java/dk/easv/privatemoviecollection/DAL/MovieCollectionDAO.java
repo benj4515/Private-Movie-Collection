@@ -1,11 +1,15 @@
 package dk.easv.privatemoviecollection.DAL;
 
+import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class MovieCollectionDAO implements IMovieDataAccess  {
 
@@ -29,7 +33,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 String name = rs.getString("name");
                 double rating = rs.getDouble("rating");
                 String path = rs.getString("filelink");
-                double lastviewed = rs.getDouble("lastview");
+                String lastviewed = rs.getString("lastview");
                 String genre = rs.getString("genre");
                 double duration = rs.getDouble("duration");
 
@@ -56,7 +60,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
             stmt.setString(1, newMovie.getName());
             stmt.setDouble(2, newMovie.getRating());
             stmt.setString(3, newMovie.getPath());
-            stmt.setDouble(4, newMovie.getLastviewed());
+            stmt.setString(4, newMovie.getLastviewed());
             stmt.setString(5, newMovie.getGenre());
             stmt.setDouble(6, newMovie.getDuration());
 
@@ -80,7 +84,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 stmt.setString(1,movie.getName());
                 stmt.setDouble(2,movie.getRating());
                 stmt.setString(3,movie.getPath());
-                stmt.setDouble(4,movie.getLastviewed());
+                stmt.setString(4,movie.getLastviewed());
                 stmt.setString(5,movie.getGenre());
                 stmt.setDouble(6,movie.getDuration());
                 //stmt.setInt(7,movie.getId());
@@ -92,25 +96,6 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
             }
     }
 
-    /*
-    @Override
-    public void deleteMovie(MovieCollection movie) throws Exception {
-        //Deletes a movie from the database - movie table
-        String sql = "DELETE FROM dbo.Movies WHERE id = ?"
-                + "DELETE FROM dbo.CatMovies WHERE id = ?";
-
-        try(Connection conn = dbConnector.getConnection()){
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1,movie.getId());
-            stmt.setInt(2,movie.getId());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new Exception("Couldn't delete movie from database",e);
-        }
-
-    }
-
-     */
 
 @Override
 public void deleteMovie(MovieCollection movie) throws Exception {
@@ -140,9 +125,31 @@ public void deleteMovie(MovieCollection movie) throws Exception {
 
     */
 
+
     @Override
     public List<MovieCollection> getMovieCollectionsByGenre(String genre) throws Exception {
         return List.of();
+    }
+
+    public List<Genre> getAllGenres() throws Exception{
+
+        String query = "SELECT * FROM dbo.Category";
+        List<Genre> genres = new ArrayList<>();
+
+        try (Connection conn = dbConnector.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query)){
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String genre = rs.getString("name");
+                genres.add(new Genre(id, genre));
+            }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+            throw new Exception("Could not fetch Genres", ex);
+        }
+        return genres;
     }
 
 /*    @Override
@@ -151,5 +158,7 @@ public void deleteMovie(MovieCollection movie) throws Exception {
     }*/
 
 }
+
+
 
 

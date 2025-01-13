@@ -6,19 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="c8ef1b59-a2ce-488d-b846-f94bd7817da0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" afterDir="false" />
-    </list>
-    <list id="5b3ad748-ea6a-4144-927b-517eedc27f8a" name="Changes by Benjamin Davgaard" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/Util/MovieSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/Util/MovieSearcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" afterDir="false" />
+    </list>
+    <list id="5b3ad748-ea6a-4144-927b-517eedc27f8a" name="Changes by Benjamin Davgaard" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
     </list>
     <list id="f2f2fb27-5841-483d-8715-8cf5b86a82cb" name="Changes by mathi" comment="" />
+    <list id="3bcc4440-dc98-4bf8-8b96-08bdd5b0da6c" name="Changes by victo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,10 +57,31 @@
   }
 }</component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java">
+    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java">
       <ranges>
-        <range start1="7" end1="7" start2="7" end2="8" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
-        <range start1="44" end1="44" start2="45" end2="52" changelist="5b3ad748-ea6a-4144-927b-517eedc27f8a" />
+        <range start1="2" end1="2" start2="2" end2="3" changelist="5b3ad748-ea6a-4144-927b-517eedc27f8a" />
+        <range start1="31" end1="31" start2="32" end2="37" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+        <range start1="63" end1="63" start2="69" end2="70" changelist="5b3ad748-ea6a-4144-927b-517eedc27f8a" />
+        <range start1="74" end1="74" start2="81" end2="87" changelist="5b3ad748-ea6a-4144-927b-517eedc27f8a" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="5b3ad748-ea6a-4144-927b-517eedc27f8a" />
+        <range start1="42" end1="42" start2="43" end2="47" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="5b3ad748-ea6a-4144-927b-517eedc27f8a" />
+        <range start1="8" end1="8" start2="9" end2="12" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+        <range start1="31" end1="32" start2="35" end2="36" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+        <range start1="58" end1="59" start2="62" end2="63" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+        <range start1="82" end1="83" start2="86" end2="87" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+        <range start1="94" end1="113" start2="98" end2="98" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+        <range start1="141" end1="141" start2="126" end2="127" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
+        <range start1="146" end1="146" start2="132" end2="153" changelist="5b3ad748-ea6a-4144-927b-517eedc27f8a" />
+        <range start1="153" end1="153" start2="160" end2="162" changelist="c8ef1b59-a2ce-488d-b846-f94bd7817da0" />
       </ranges>
     </file>
   </component>
@@ -166,6 +190,9 @@
       <workItem from="1736411150552" duration="11695000" />
       <workItem from="1736459670223" duration="11699000" />
       <workItem from="1736498719653" duration="7298000" />
+      <workItem from="1736508406418" duration="1328000" />
+      <workItem from="1736628902030" duration="855000" />
+      <workItem from="1736757530497" duration="7150000" />
     </task>
     <servers />
   </component>

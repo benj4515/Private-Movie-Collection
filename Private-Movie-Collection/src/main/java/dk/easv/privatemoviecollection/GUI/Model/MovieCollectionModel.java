@@ -1,5 +1,6 @@
 package dk.easv.privatemoviecollection.GUI.Model;
 
+import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 import dk.easv.privatemoviecollection.BLL.MovieCollectionManager;
 import dk.easv.privatemoviecollection.DAL.MovieCollectionDAO;
@@ -82,5 +83,11 @@ public class MovieCollectionModel {
         movieCollectionManager.deleteMovie(selectedMovie);
         //delete movie from observable list
         moviesToBeViewed.remove(selectedMovie);
+    }
+
+    public ObservableList<Genre> getAllGenres() throws Exception{
+
+        List<Genre> genres = movieCollectionManager.getAllGenres();
+        return FXCollections.observableArrayList(genres);
     }
 }
