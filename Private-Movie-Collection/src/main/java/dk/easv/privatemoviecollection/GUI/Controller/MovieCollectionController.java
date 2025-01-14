@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
 import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +28,7 @@ public class MovieCollectionController implements Initializable {
     public TableColumn<MovieCollection, String> colLastViewed;
     public TableColumn<MovieCollection, String> colRating;
     public Button btnDeleteMovie;
+    public Button btnAddGenre;
     private MovieCollectionModel movieCollectionModel;
     @FXML
     private TextField txtSearchMovie;
@@ -65,7 +67,7 @@ public class MovieCollectionController implements Initializable {
         colMovie.setCellValueFactory(new PropertyValueFactory<>("name"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
-        colLastViewed.setCellValueFactory(new PropertyValueFactory<>("lastViewed"));
+        colLastViewed.setCellValueFactory(new PropertyValueFactory<>("lastviewed"));
         colRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
         colCat.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
@@ -80,9 +82,9 @@ public class MovieCollectionController implements Initializable {
             }
         });
 
-        try{
+        try {
             tblGenre.setItems(movieCollectionModel.getAllGenres());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -103,9 +105,9 @@ public class MovieCollectionController implements Initializable {
             NewMovieWindowController controller = loader.getController();
 
             // Send a reference to the parent to MyTunesController
-            controller.setParent(this); // this refers to this MainWindowController object
+            controller.setParent(this); // this refers to this MovieCollectionController object
 
-            // Set the modality to Application (you must close Window1 before going to the parent window
+            // Set the modality to Application (you must close "Add movie" before going to the parent window
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (Exception e) {
@@ -134,7 +136,6 @@ public class MovieCollectionController implements Initializable {
     }
 
 
-
     public void tableRefresh() {
         // this method updates the tableview with songs with latest dataset
         System.out.println("tableRefresh called");
@@ -144,9 +145,33 @@ public class MovieCollectionController implements Initializable {
             displayError(e);
         }
         ObservableList<MovieCollection> MovieCollection = movieCollectionModel.getObservableMovies();
-        System.out.println("Number of songs: " + MovieCollection.size());
+        System.out.println("Number of Movies: " + MovieCollection.size());
         tblMovies.setItems(null); // Clear the table
         tblMovies.setItems(MovieCollection); // Reset the items
         tblMovies.refresh(); // Refresh the table
+    }
+
+    @FXML
+    private NewCategoryController onNewGenreButtonClick(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/NewCategoryWindow.fxml"));
+
+            Parent scene = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(scene));
+            stage.setTitle("Add Genre");
+
+            NewCategoryController controller = loader.getController();
+
+            controller.setParent(this);
+
+
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            displayError(e);
+        }
+        return null;
     }
 }

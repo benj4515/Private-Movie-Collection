@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+import java.sql.Date;
+
 public class NewMovieWindowController {
     @FXML
     private TextField movieNameField;
@@ -55,7 +57,7 @@ public class NewMovieWindowController {
             e.printStackTrace();
         }
     }
-    public void setMyTunesController(MovieCollectionController movieCollectionController) {
+    public void setMovieCollectionController(MovieCollectionController movieCollectionController) {
         this.movieCollectionController = movieCollectionController;
     }
 

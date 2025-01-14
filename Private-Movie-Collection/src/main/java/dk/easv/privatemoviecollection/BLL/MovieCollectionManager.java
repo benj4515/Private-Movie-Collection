@@ -45,4 +45,8 @@ public class MovieCollectionManager {
     public List<Genre> getAllGenres() throws Exception {
         return dataAccess.getAllGenres();
     }
+
+    public void createGenre(String genre) throws Exception {
+        dataAccess.createGenre(genre);
+    }
 }

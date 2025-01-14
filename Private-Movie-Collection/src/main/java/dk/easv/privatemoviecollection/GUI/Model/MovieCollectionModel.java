@@ -90,4 +90,21 @@ public class MovieCollectionModel {
         List<Genre> genres = movieCollectionManager.getAllGenres();
         return FXCollections.observableArrayList(genres);
     }
+
+    public void createGenre(String genreName) throws Exception {
+        movieCollectionManager.createGenre(genreName);
+    }
+
+    public Genre getGenreById(int id) throws Exception {
+        List<Genre> genres = movieCollectionManager.getAllGenres();
+        for (Genre g : genres) {
+            if (g.getId() == id) {
+                return g;
+            }
+        }
+        return null;
+    }
+
+
+
 }

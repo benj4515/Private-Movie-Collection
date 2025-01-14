@@ -5,6 +5,7 @@ module dk.easv.privatemoviecollection {
     requires java.sql;
     requires java.naming;
     requires java.desktop;
+    requires javafx.media;
 
 
     opens dk.easv.privatemoviecollection to javafx.fxml;

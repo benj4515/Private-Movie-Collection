@@ -113,10 +113,7 @@ public void deleteMovie(MovieCollection movie) throws Exception {
     }
 }
 
-    @Override
-    public void createGenre(String genre, List<MovieCollection> selectedMovies) throws Exception {
 
-    }
 
    /* @Override
     public List<Genre> getAllGenre() throws Exception {
@@ -150,6 +147,32 @@ public void deleteMovie(MovieCollection movie) throws Exception {
             throw new Exception("Could not fetch Genres", ex);
         }
         return genres;
+    }
+
+    public void createGenre(String genre) throws Exception {
+        String insertCategory = "INSERT INTO dbo.Category (name) VALUES (?)";
+
+        try (Connection conn = dbConnector.getConnection()){
+            conn.setAutoCommit(false);
+
+            int CategoryId;
+            try (PreparedStatement stmt = conn.prepareStatement(insertCategory, Statement.RETURN_GENERATED_KEYS)) {
+                stmt.setString(1, genre);
+                stmt.executeUpdate();
+
+                try (ResultSet rs = stmt.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        CategoryId = rs.getInt(1);
+                    } else{
+                        throw new Exception("Failed to get CategoryId");
+                    }
+                }
+            }
+            conn.commit();
+        }catch (SQLException e){
+            e.printStackTrace();
+            throw new Exception("Couldn't create category in database");
+        }
     }
 
 /*    @Override
