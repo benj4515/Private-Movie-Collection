@@ -12,6 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -37,6 +41,10 @@ public class MovieCollectionController implements Initializable {
     @FXML
     private TableView<Genre> tblGenre;
     public TableColumn<Genre, String> colCat;
+    @FXML
+    private MediaView mdpPlayer;
+    @FXML
+    private StackPane stackPlayer;
 
 
     public MovieCollectionController() {
@@ -70,6 +78,10 @@ public class MovieCollectionController implements Initializable {
         colLastViewed.setCellValueFactory(new PropertyValueFactory<>("lastviewed"));
         colRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
         colCat.setCellValueFactory(new PropertyValueFactory<>("genre"));
+
+        // Bind the fitWidth and fitHeight properties of the MediaView to the HBox
+        mdpPlayer.fitWidthProperty().bind(stackPlayer.widthProperty());
+        mdpPlayer.fitHeightProperty().bind(stackPlayer.heightProperty());
 
         tblMovies.setItems(movieCollectionModel.getObservableMovies());
 
@@ -173,5 +185,18 @@ public class MovieCollectionController implements Initializable {
             displayError(e);
         }
         return null;
+    }
+
+    @FXML
+    private void onPlayButtonClick(ActionEvent actionEvent) {
+        try {
+            String filePath = "file:///C:/Users/benja/Videos/Movies/28_YEARS_LATER_Official_Trailer_HD.mp4";
+            Media media = new Media(filePath);
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mdpPlayer.setMediaPlayer(mediaPlayer);
+            mediaPlayer.play();
+        } catch (Exception e) {
+            displayError(e);
+        }
     }
 }
