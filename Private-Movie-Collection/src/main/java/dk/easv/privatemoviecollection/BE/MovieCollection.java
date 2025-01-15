@@ -15,7 +15,7 @@ public class MovieCollection {
     private int id;
 
 
-    public MovieCollection(String name, double rating,String path,String lastviewed, String genre, double duration) {
+    /*public MovieCollection(String name, double rating,String path,String lastviewed, String genre, double duration) {
         this.name = name;
         this.rating = rating;
         this.genre = genre;
@@ -23,6 +23,10 @@ public class MovieCollection {
         this.lastviewed = lastviewed;
         this.duration = duration;
     }
+
+     */
+
+
 
 
 

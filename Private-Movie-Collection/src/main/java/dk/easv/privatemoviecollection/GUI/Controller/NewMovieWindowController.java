@@ -117,7 +117,7 @@ public class NewMovieWindowController {
         System.out.println("Rating: " + rating);
         System.out.println("File Location: " + path);
 
-        MovieCollection newMovie = new MovieCollection(name,rating,path,lastviewed,genre,duration);
+        MovieCollection newMovie = new MovieCollection(-1,name,rating,path,lastviewed,genre,duration);
 
         MovieCollectionModel.createMovie(newMovie);
         System.out.println("New Movie Added" + newMovie);
