@@ -52,6 +52,7 @@ public class MovieCollectionController implements Initializable {
     @FXML
     private TableView<Genre> tblGenre;
     public TableColumn<Genre, String> colCat;
+    private MovieCollection selectedMovie;
 
 
 
@@ -78,6 +79,8 @@ public class MovieCollectionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
 
 
         colMovie.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -108,16 +111,16 @@ public class MovieCollectionController implements Initializable {
             if ( newValue != null ) {
                 try {
                     lstGenreMovies.setItems(movieCollectionModel.getMoviesForGenre(newValue));
-                    /*lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
+                    lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
                         if ( newMovie != null ) {
-                            selectedMovie() = (MovieCollection) newMovie;
-                            System.out.println("Selected song from genre: " + selectedMovie().getAddres);
+                            selectedMovie = (MovieCollection) newMovie;
+                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
                         }
 
 
-                    })
+                    });
 
-                     */
+
                 } catch (Exception e) {
                     displayError(e);
                 }
@@ -129,6 +132,7 @@ public class MovieCollectionController implements Initializable {
 
 
     }
+
 
     @FXML
     private NewMovieWindowController onNewMovieButtonClick(ActionEvent actionEvent) {

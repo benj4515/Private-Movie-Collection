@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8ef1b59-a2ce-488d-b846-f94bd7817da0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewCategorylistWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewCategorylistWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/NewCategorylistWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/NewCategorylistWindow.fxml" afterDir="false" />
     </list>
     <list id="f2f2fb27-5841-483d-8715-8cf5b86a82cb" name="Changes by mathi" comment="" />
     <list id="3bcc4440-dc98-4bf8-8b96-08bdd5b0da6c" name="Changes by victo" comment="" />
@@ -167,7 +158,7 @@
       <workItem from="1736849156730" duration="5777000" />
       <workItem from="1736855414084" duration="545000" />
       <workItem from="1736930812861" duration="11049000" />
-      <workItem from="1736950446931" duration="16349000" />
+      <workItem from="1736950446931" duration="17720000" />
     </task>
     <servers />
   </component>
