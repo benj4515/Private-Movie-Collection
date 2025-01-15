@@ -5,6 +5,7 @@ import dk.easv.privatemoviecollection.GUI.Model.MovieCollectionModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
@@ -34,8 +35,13 @@ public class NewMovieWindowController {
     @FXML
     private Button cancelButton;
     private MovieCollectionController movieCollectionController;
+    @FXML
+    private ComboBox genreDropDown;
 
     @FXML
+    public void initialize() {
+        genreDropDown.getItems().addAll("Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Horror", "Mystery", "Philosophical", "Political", "Romance", "Saga", "Satire", "Science fiction", "Social", "Speculative", "Thriller", "Urban", "Western");
+    }
 
 
 

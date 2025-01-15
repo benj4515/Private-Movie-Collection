@@ -87,7 +87,7 @@
                <children>
                   <HBox prefHeight="63.0" prefWidth="88.0">
                      <children>
-                        <Button fx:id="btnAddGenre" mnemonicParsing="false"  prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" onAction="#onNewGenreButtonClick" />
+                        <Button fx:id="btnAddGenre" mnemonicParsing="false"  prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -109,7 +109,7 @@
                         </HBox>
                         <HBox prefHeight="63.0" prefWidth="130.0">
                            <children>
-                              <Button fx:id="btnPlay" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Play" />
+                              <Button fx:id="btnPlay" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Play" onAction="#onPlayButtonClick"/>
                            </children>
                         </HBox>
                         <HBox prefHeight="63.0" prefWidth="60.0">
