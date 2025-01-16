@@ -194,12 +194,12 @@ public void deleteMovie(MovieCollection movie) throws Exception {
         return genres;
     }
 
-    @Override
+
     public List<MovieCollection> getMoviesForGenre(int genreId) throws Exception {
         String query = "SELECT m.id, m.name, m.rating, m.filelink, m.lastview, m.genre, m.duration " +
                 "From dbo.Movies m " +
                 "JOIN dbo.CatMovie cm ON m.id = cm.movieID " +
-                "WHERE cm.id = ?";
+                "WHERE cm.catId = ?";
 
         List<MovieCollection> movies = new ArrayList<>();
 
@@ -212,7 +212,7 @@ public void deleteMovie(MovieCollection movie) throws Exception {
                         String name = rs.getString("name");
                         double rating = rs.getDouble("rating");
                         String path = rs.getString("filelink");
-                        String lastview = rs.getString("lastview");
+                        Date lastview = rs.getDate("lastview");
                         String genre = rs.getString("genre");
                         double duration = rs.getDouble("duration");
 
