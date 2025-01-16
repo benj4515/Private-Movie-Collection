@@ -99,7 +99,6 @@ public class MovieCollectionController implements Initializable {
 
         tblMovies.setItems(movieCollectionModel.getObservableMovies());
 
-
         txtSearchMovie.textProperty().addListener((_, _, newValue) -> {
             try {
                 movieCollectionModel.searchMovies(newValue);
@@ -114,32 +113,6 @@ public class MovieCollectionController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
-        tblGenre.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
-            if ( newValue != null ) {
-                try {
-
-                    lstGenreMovies.setItems(movieCollectionModel.getMoviesForGenre(newValue));
-                    lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
-                        if ( newMovie != null ) {
-                            selectedMovie = (MovieCollection) newMovie;
-                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
-                        }
-
-
-                    });
-
-
-                } catch (Exception e) {
-                    displayError(e);
-                }
-            } else {
-                lstGenreMovies.setItems(FXCollections.observableArrayList());
-            }
-        });
 
 
 
@@ -308,7 +281,7 @@ public class MovieCollectionController implements Initializable {
         return selectedMovie;
     }
 
-  /*public MovieCollection oldShittyMovies() {
+  public MovieCollection oldShittyMovies() {
     try {
             List<MovieCollection> movies = movieCollectionModel.checkIfOldShit();
             if (!movies.isEmpty()) {
@@ -321,13 +294,28 @@ public class MovieCollectionController implements Initializable {
         } catch (Exception e) {
             displayError(e);
         }
+=======
+        tblGenre.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
+            if ( newValue != null ) {
+                try {
+                    lstGenreMovies.setItems(movieCollectionModel.getMoviesForGenre(newValue));
+                    lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
+                        if ( newMovie != null ) {
+                            selectedMovie = (MovieCollection) newMovie;
+                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
+                        }
 
-   */
+
+                    });
 
 
-
+                } catch (Exception e) {
+                    displayError(e);
+                }
+            } else {
+                lstGenreMovies.setItems(FXCollections.observableArrayList());
+            }
+        });
   
   }
-
-
-
+}
