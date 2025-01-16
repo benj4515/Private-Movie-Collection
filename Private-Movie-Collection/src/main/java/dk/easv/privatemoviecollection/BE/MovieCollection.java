@@ -1,9 +1,6 @@
 package dk.easv.privatemoviecollection.BE;
 
-import dk.easv.privatemoviecollection.BLL.MovieCollectionManager;
 import java.sql.Date;
-import java.time.LocalDateTime;
-import java.text.SimpleDateFormat;
 
 public class MovieCollection {
 
@@ -23,7 +20,7 @@ public class MovieCollection {
 
 
     //Overloaded constructor to allow us to use getId
-    public MovieCollection(int id, String name, double rating,String path, Date lastviewed, String genre, double duration) {
+    public MovieCollection(int id, String name, double rating, String path, String genre, double duration) {
         this.id = id;
         this.name = name;
         this.rating = rating;

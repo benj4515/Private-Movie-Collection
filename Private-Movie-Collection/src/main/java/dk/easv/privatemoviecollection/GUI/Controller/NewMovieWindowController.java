@@ -2,7 +2,6 @@ package dk.easv.privatemoviecollection.GUI.Controller;
 
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 import dk.easv.privatemoviecollection.GUI.Model.MovieCollectionModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -117,7 +116,7 @@ public class NewMovieWindowController {
         System.out.println("Rating: " + rating);
         System.out.println("File Location: " + path);
 
-        MovieCollection newMovie = new MovieCollection(-1,name,rating,path,lastviewed,genre,duration);
+        MovieCollection newMovie = new MovieCollection(-1,name,rating,path, genre,duration);
 
         MovieCollectionModel.createMovie(newMovie);
         System.out.println("New Movie Added" + newMovie);

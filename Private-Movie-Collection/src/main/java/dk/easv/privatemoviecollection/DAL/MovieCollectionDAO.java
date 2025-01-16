@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 public class MovieCollectionDAO implements IMovieDataAccess  {
@@ -37,7 +35,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 String genre = rs.getString("genre");
                 double duration = rs.getDouble("duration");
 
-                MovieCollection movie = new MovieCollection(id,name,rating,path,lastviewed,genre,duration);
+                MovieCollection movie = new MovieCollection(id,name,rating,path, genre,duration);
                 movieCollections.add(movie);
             }
             return movieCollections;
@@ -216,7 +214,7 @@ public void deleteMovie(MovieCollection movie) throws Exception {
                         String genre = rs.getString("genre");
                         double duration = rs.getDouble("duration");
 
-                        movies.add(new MovieCollection(id, name, rating, path, lastview, genre, duration));
+                        movies.add(new MovieCollection(id, name, rating, path, genre, duration));
                     }
                 }
             }

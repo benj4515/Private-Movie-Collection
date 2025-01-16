@@ -15,7 +15,7 @@ import java.util.Properties;
 
 public class DBConnector {
 
-    private static final String PROP_FILE = "config/config.settings";
+    private static final String PROP_FILE = "C:\\github\\Private-Movie-Collection\\Private-Movie-Collection\\config\\config.settings";
     private final SQLServerDataSource dataSource;
 
     public DBConnector() throws IOException {
