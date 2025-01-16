@@ -3,6 +3,7 @@ package dk.easv.privatemoviecollection.GUI.Controller;
 import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 import dk.easv.privatemoviecollection.GUI.Model.MovieCollectionModel;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -44,6 +45,7 @@ public class MovieCollectionController implements Initializable {
     public TableColumn<MovieCollection, String> colRating;
     public Button btnDeleteMovie;
     public Button btnAddGenre;
+    public ListView lstGenreMovies;
     private MovieCollectionModel movieCollectionModel;
     @FXML
     private TextField txtSearchMovie;
@@ -52,6 +54,8 @@ public class MovieCollectionController implements Initializable {
     @FXML
     private TableView<Genre> tblGenre;
     public TableColumn<Genre, String> colCat;
+    private MovieCollection selectedMovie;
+
 
 
     public MovieCollectionController() {
@@ -84,6 +88,8 @@ public class MovieCollectionController implements Initializable {
         System.out.println("Current Date - 2 years: " + currentDate2);
 
 
+
+
         colMovie.setCellValueFactory(new PropertyValueFactory<>("name"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
@@ -108,20 +114,10 @@ public class MovieCollectionController implements Initializable {
             e.printStackTrace();
         }
 
-        try {
-            List<MovieCollection> movies = movieCollectionModel.checkIfOldShit();
-            if (!movies.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Movies Unplayed for 2 Years with Low Score");
-                alert.setHeaderText(null);
-                alert.setContentText("There are movies that have been unplayed for 2 years and have a score under 6.");
-                alert.showAndWait();
-            }
-        } catch (Exception e) {
-            displayError(e);
-        }
+
 
     }
+
 
     @FXML
     private NewMovieWindowController onNewMovieButtonClick(ActionEvent actionEvent) {
@@ -174,6 +170,9 @@ public class MovieCollectionController implements Initializable {
         System.out.println("tableRefresh called");
         try {
             movieCollectionModel.refreshMovies();
+            ObservableList<Genre> Genre = movieCollectionModel.getAllGenres();
+            tblGenre.setItems(null);
+            tblGenre.setItems(Genre);
         } catch (Exception e) {
             displayError(e);
         }
@@ -182,33 +181,42 @@ public class MovieCollectionController implements Initializable {
         tblMovies.setItems(null); // Clear the table
         tblMovies.setItems(MovieCollection); // Reset the items
         tblMovies.refresh(); // Refresh the table
+
+
+
+
     }
 
-    /*
+
     @FXML
-    private NewCategoryController onNewGenreButtonClick(ActionEvent actionEvent) {
+    private void onNewGenreButtonClick() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/NewCategoryWindow.fxml"));
+            loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/NewCategorylistWindow.fxml"));
 
             Parent scene = loader.load();
+
+            NewCategorylistWindowController playlistController = loader.getController();
+            playlistController.setMovieCollectionModel(movieCollectionModel);
+            playlistController.setMovieCollectionController(this);
+
             Stage stage = new Stage();
             stage.setScene(new Scene(scene));
             stage.setTitle("Add Genre");
 
-            NewCategoryController controller = loader.getController();
 
-            controller.setParent(this);
 
 
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
+            stage.showAndWait();
+
         } catch (Exception e) {
+            e.printStackTrace();
             displayError(e);
         }
-        return null;
+
     }
-    */
+
 
     MPlayer player;
     FileChooser fileChooser;
@@ -273,4 +281,41 @@ public class MovieCollectionController implements Initializable {
         return selectedMovie;
     }
 
+  public MovieCollection oldShittyMovies() {
+    try {
+            List<MovieCollection> movies = movieCollectionModel.checkIfOldShit();
+            if (!movies.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Movies Unplayed for 2 Years with Low Score");
+                alert.setHeaderText(null);
+                alert.setContentText("There are movies that have been unplayed for 2 years and have a score under 6.");
+                alert.showAndWait();
+            }
+        } catch (Exception e) {
+            displayError(e);
+        }
+=======
+        tblGenre.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
+            if ( newValue != null ) {
+                try {
+                    lstGenreMovies.setItems(movieCollectionModel.getMoviesForGenre(newValue));
+                    lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
+                        if ( newMovie != null ) {
+                            selectedMovie = (MovieCollection) newMovie;
+                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
+                        }
+
+
+                    });
+
+
+                } catch (Exception e) {
+                    displayError(e);
+                }
+            } else {
+                lstGenreMovies.setItems(FXCollections.observableArrayList());
+            }
+        });
+  
+  }
 }

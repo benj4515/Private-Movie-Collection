@@ -16,13 +16,16 @@ public interface IMovieDataAccess {
 
     void deleteMovie(MovieCollection movie) throws Exception;
 
-    void createGenre(String genre) throws Exception;
+    void createGenre(String genre, List<MovieCollection> selectedMovies) throws Exception;
 
     List<Genre> getAllGenres() throws Exception;
 
 
 
-    List<MovieCollection> getMovieCollectionsByGenre(String genre) throws Exception;
+    //List<MovieCollection> getMovieCollectionsByGenre(String genre) throws Exception;
 
-    //void updateGenre(Genre genre, List<MovieCollection> selectedMovies) throws Exception;
+
+    List<MovieCollection> getMoviesForGenre(int genreId) throws Exception;
+
+    void updateGenre(Genre genre, List<MovieCollection> movies) throws Exception;
 }

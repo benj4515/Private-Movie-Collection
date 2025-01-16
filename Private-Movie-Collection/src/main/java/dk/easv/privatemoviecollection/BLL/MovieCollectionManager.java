@@ -12,7 +12,7 @@ import java.util.List;
 import dk.easv.privatemoviecollection.BLL.Util.MovieSearcher;
 import dk.easv.privatemoviecollection.DAL.IMovieDataAccess;
 import dk.easv.privatemoviecollection.DAL.MovieCollectionDAO;
-
+import javafx.collections.ObservableList;
 
 
 public class MovieCollectionManager {
@@ -49,8 +49,16 @@ public class MovieCollectionManager {
         return dataAccess.getAllGenres();
     }
 
-    public void createGenre(String genre) throws Exception {
-        dataAccess.createGenre(genre);
+    public void createGenre(String genreName, ObservableList<MovieCollection> selectedMovies) throws Exception {
+        dataAccess.createGenre(genreName, selectedMovies);
+    }
+
+    public void updateGenre(Genre genre, ObservableList<MovieCollection> movies) throws Exception {
+        dataAccess.updateGenre(genre, movies);
+    }
+
+    public List<MovieCollection> getMoviesForGenre(int genreId) throws Exception {
+        return dataAccess.getMoviesForGenre(genreId);
     }
 
     public List<MovieCollection> checkIfOldShit() throws Exception {

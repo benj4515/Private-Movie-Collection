@@ -16,14 +16,9 @@ public class MovieCollection {
     private int id;
 
 
-    public MovieCollection(String name, double rating,String path,Date lastviewed, String genre, double duration) {
-        this.name = name;
-        this.rating = rating;
-        this.genre = genre;
-        this.path = path;
-        this.lastviewed = lastviewed;
-        this.duration = duration;
-    }
+
+
+
 
 
 

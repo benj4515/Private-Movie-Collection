@@ -113,6 +113,43 @@ public void deleteMovie(MovieCollection movie) throws Exception {
     }
 }
 
+    @Override
+    public void createGenre(String genre, List<MovieCollection> selectedMovies) throws Exception {
+        String insertGenre = "INSERT INTO dbo.Category(name) VALUES (?)";
+        String insertGenreMovies = "INSERT INTO dbo.CatMovie(catId, movieID) VALUES (?,?)";
+
+        try (Connection conn = dbConnector.getConnection()){
+            conn.setAutoCommit(false);
+
+            int catId;
+            try (PreparedStatement stmt = conn.prepareStatement(insertGenre, Statement.RETURN_GENERATED_KEYS)) {
+                stmt.setString(1, genre);
+                stmt.executeUpdate();
+
+                try (ResultSet rs = stmt.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        catId = rs.getInt(1);
+                    } else {
+                        throw new Exception("Couldn't get id for the genre");
+                    }
+                }
+            }
+
+            try (PreparedStatement stmt = conn.prepareStatement(insertGenreMovies)) {
+                for (MovieCollection movie : selectedMovies) {
+                    stmt.setInt(1, catId);
+                    stmt.setInt(2, movie.getId());
+                    stmt.addBatch();
+                }
+                stmt.executeBatch();
+            }
+            conn.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("Couldn't create genre in database", e);
+        }
+    }
+
 
 
    /* @Override
@@ -123,9 +160,16 @@ public void deleteMovie(MovieCollection movie) throws Exception {
     */
 
 
-    @Override
+   /* @Override
     public List<MovieCollection> getMovieCollectionsByGenre(String genre) throws Exception {
         return List.of();
+    }
+
+    */
+
+    @Override
+    public void updateGenre(Genre genre, List<MovieCollection> movies) throws Exception {
+
     }
 
     public List<Genre> getAllGenres() throws Exception{
@@ -140,13 +184,47 @@ public void deleteMovie(MovieCollection movie) throws Exception {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String genre = rs.getString("name");
-                genres.add(new Genre(id, genre));
+                Genre category = new Genre(id, genre);
+                genres.add(category);
             }
         } catch (SQLException ex){
             ex.printStackTrace();
             throw new Exception("Could not fetch Genres", ex);
         }
         return genres;
+    }
+
+    @Override
+    public List<MovieCollection> getMoviesForGenre(int genreId) throws Exception {
+        String query = "SELECT m.id, m.name, m.rating, m.filelink, m.lastview, m.genre, m.duration " +
+                "From dbo.Movies m " +
+                "JOIN dbo.CatMovie cm ON m.id = cm.movieID " +
+                "WHERE cm.id = ?";
+
+        List<MovieCollection> movies = new ArrayList<>();
+
+        try (Connection conn = dbConnector.getConnection()){
+            PreparedStatement stmt = conn.prepareStatement(query);{
+                stmt.setInt(1, genreId);
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()) {
+                        int id = rs.getInt("id");
+                        String name = rs.getString("name");
+                        double rating = rs.getDouble("rating");
+                        String path = rs.getString("filelink");
+                        String lastview = rs.getString("lastview");
+                        String genre = rs.getString("genre");
+                        double duration = rs.getDouble("duration");
+
+                        movies.add(new MovieCollection(id, name, rating, path, lastview, genre, duration));
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new Exception("Couldn't fetch movies", ex);
+        }
+        return movies;
     }
 
     public void createGenre(String genre) throws Exception {

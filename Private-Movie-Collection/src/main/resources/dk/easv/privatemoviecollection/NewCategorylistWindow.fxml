@@ -8,23 +8,23 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.privatemoviecollection.GUI.Controller.GenrelistViewController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.privatemoviecollection.GUI.Controller.NewCategorylistWindowController">
     <children>
         <Label layoutX="20.0" layoutY="10.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Create Categorylist" />
         <Label layoutX="20.0" layoutY="50.0" text="Genre List" />
-        <TextField fx:id="playlistNameField" layoutX="120.0" layoutY="45.0" prefWidth="200.0" promptText="Enter playlist name" text="Enter Genre" />
+        <TextField fx:id="genrelistNameField" layoutX="120.0" layoutY="45.0" prefWidth="200.0" promptText="Enter playlist name" text="Enter Genre" />
         <Label layoutX="20.0" layoutY="90.0" text="Avaliable Movies:" />
-        <TableView fx:id="tblAvailableSongs" layoutX="20.0" layoutY="110.0" prefHeight="150.0" prefWidth="560.0">
+        <TableView fx:id="tblAvailableMovies" layoutX="20.0" layoutY="110.0" prefHeight="150.0" prefWidth="560.0">
             <columns>
                 <TableColumn fx:id="colTitle" prefWidth="200.0" text="Title" />
-                <TableColumn fx:id="colArtist" prefWidth="200.0" text="Rating" />
+                <TableColumn fx:id="colRating" prefWidth="200.0" text="Rating" />
                 <TableColumn fx:id="colCategory" prefWidth="150.0" text="Category" />
             </columns>
         </TableView>
         <Button layoutX="20.0" layoutY="270.0" onAction="#onAddMovie" text="Add Movie" />
         <Button layoutX="100.0" layoutY="270.0" onAction="#onRemoveSong" text="Remove Movie" />
         <Label layoutX="20.0" layoutY="310.0" text="Selected Movies:" />
-        <ListView fx:id="lstSelectedSongs" layoutX="20.0" layoutY="330.0" prefHeight="120.0" prefWidth="560.0" />
+        <ListView fx:id="lstSelectedMovies" layoutX="20.0" layoutY="330.0" prefHeight="120.0" prefWidth="560.0" />
         <Button layoutX="480.0" layoutY="460.0" onAction="#onSavePlaylist" text="Save Categorylist" />
         <Button layoutX="380.0" layoutY="460.0" onAction="#onCancel" text="Cancel" />
     </children>

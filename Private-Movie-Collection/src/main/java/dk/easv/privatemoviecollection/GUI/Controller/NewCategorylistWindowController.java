@@ -2,7 +2,6 @@ package dk.easv.privatemoviecollection.GUI.Controller;
 
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 import dk.easv.privatemoviecollection.BE.Genre;
-import dk.easv.privatemoviecollection.GUI.Controller.MovieCollectionController;
 import dk.easv.privatemoviecollection.GUI.Model.MovieCollectionModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +11,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class NewCategorylistWindow {
+public class NewCategorylistWindowController {
+
+    public TextField playlistNameField;
+
 
     @FXML
     private TextField genrelistNameField;
@@ -25,7 +27,7 @@ public class NewCategorylistWindow {
     @FXML
     private TableColumn<MovieCollection, String> colCategory;
     @FXML
-    private ListView<MovieCollection> lstSelectedSongs;
+    private ListView<MovieCollection> lstSelectedMovies;
 
     private final ObservableList<MovieCollection> availableMovies = FXCollections.observableArrayList();
     private final ObservableList<MovieCollection> selectedMovies = FXCollections.observableArrayList();
@@ -36,13 +38,13 @@ public class NewCategorylistWindow {
 
     public void setMovieCollectionModel(MovieCollectionModel model) {
         this.movieCollectionModel = model;
-        loadAvailableSongs();
+        loadAvailableMovies();
     }
 
-    public void loadPlaylistData(Genre genre, ObservableList<MovieCollection> songs) {
+    public void loadGenreData(Genre genre, ObservableList<MovieCollection> movies) {
         // this method
         genrelistNameField.setText(genre.getGenre());
-        selectedMovies.setAll(songs);
+        selectedMovies.setAll(movies);
         currentGenreId = genre.getId();
     }
 
@@ -53,31 +55,31 @@ public class NewCategorylistWindow {
     @FXML
     public void initialize() {
         // this method sets the value of the textfields in the window
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-        colRating.setCellValueFactory(new PropertyValueFactory<>("artist"));
-        colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
         tblAvailableMovies.setItems(availableMovies);
-        lstSelectedSongs.setItems(selectedMovies);
+        lstSelectedMovies.setItems(selectedMovies);
     }
 
-    private void loadAvailableSongs() {
+    private void loadAvailableMovies() {
         // This method loads all available songs from the songs list
         try {
-            //availableMovies.setAll(MovieCollectionModel.getObservableMovies());
+            availableMovies.setAll(movieCollectionModel.getObservableMovies());
         } catch (Exception e) {
             showError("Error loading songs: " + e.getMessage());
         }
     }
 
     @FXML
-    private void onAddSong() {
+    private void onAddMovie() {
         // this button adds the selected song from available song to the made or selected playlist
         MovieCollection selectedMovie = tblAvailableMovies.getSelectionModel().getSelectedItem();
         if (selectedMovie != null) {
-            boolean songExists = selectedMovies.stream()
-                    .anyMatch(song -> song.getId() == selectedMovie.getId());
-            if (!songExists) {
+            boolean movieExists = selectedMovies.stream()
+                    .anyMatch(movie -> movie.getId() == selectedMovie.getId());
+            if (!movieExists) {
                 selectedMovies.add(selectedMovie);
             }
         }
@@ -95,25 +97,25 @@ public class NewCategorylistWindow {
     @FXML
     private void onSavePlaylist() {
         // this button saves the collection of the playlist to the list and database if new it makes a new playlist if existing it updates with new dataset
-        String playlistName = genrelistNameField.getText();
-        if (playlistName.isEmpty()) {
-            showError("Playlist name is required!");
+        String genreName = genrelistNameField.getText();
+        if (genreName.isEmpty()) {
+            showError("Genre name is required!");
             return;
         }
 
         try {
-            /*
-            Genre existingPlaylist = MovieCollectionModel.getGenrelistById(currentGenreId);
-            if (existingPlaylist != null) {
+
+            Genre existingGenrelist = movieCollectionModel.getGenreById(currentGenreId);
+            if (existingGenrelist != null) {
                 // Update the existing playlist
-                existingPlaylist.setName(playlistName);
-                MovieCollectionModel.updateGenrelist(existingGenrelist, selectedMovies);
+                existingGenrelist.setGenre(genreName);
+                movieCollectionModel.updateGenre(existingGenrelist, selectedMovies);
             } else {
                 // Create a new playlist
-                MovieCollectionModel.createGenrelist(playlistName, selectedMovies);
+                movieCollectionModel.createGenre(genreName, selectedMovies);
             }
-            MovieCollectionController.tableRefresh();
-            */
+            movieCollectionController.tableRefresh();
+
             closeWindow();
         } catch (Exception e) {
             showError("Error saving playlist: " + e.getMessage());
@@ -139,7 +141,5 @@ public class NewCategorylistWindow {
         alert.showAndWait();
     }
 
-    @FXML
-    private void onAddMovie(ActionEvent actionEvent) {
-    }
+
 }

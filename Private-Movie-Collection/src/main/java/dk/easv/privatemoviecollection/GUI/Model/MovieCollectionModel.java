@@ -91,9 +91,7 @@ public class MovieCollectionModel {
         return FXCollections.observableArrayList(genres);
     }
 
-    public void createGenre(String genreName) throws Exception {
-        movieCollectionManager.createGenre(genreName);
-    }
+
 
     public Genre getGenreById(int id) throws Exception {
         List<Genre> genres = movieCollectionManager.getAllGenres();
@@ -105,9 +103,23 @@ public class MovieCollectionModel {
         return null;
     }
 
-    public List<MovieCollection> checkIfOldShit() throws Exception {
-        return movieCollectionManager.checkIfOldShit();
+
+    public void updateGenre(Genre genre, ObservableList<MovieCollection> movies) throws Exception {
+        movieCollectionManager.updateGenre(genre, movies);
+
     }
+
+    public void createGenre(String genreName, ObservableList<MovieCollection> selectedMovies) throws Exception {
+
+        movieCollectionManager.createGenre(genreName, selectedMovies);
+    }
+
+    public ObservableList<MovieCollection> getMoviesForGenre(Genre genreName) throws Exception {
+
+        List<MovieCollection> movies = movieCollectionManager.getMoviesForGenre(genreName.getId());
+        return FXCollections.observableArrayList(movies);
+    }
+
 
 
 }
