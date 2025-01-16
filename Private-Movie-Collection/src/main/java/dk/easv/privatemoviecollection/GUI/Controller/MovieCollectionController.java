@@ -24,6 +24,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import java.time.LocalDate;
 
 
 import javax.swing.*;
@@ -32,6 +33,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MovieCollectionController implements Initializable {
@@ -80,6 +82,11 @@ public class MovieCollectionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        LocalDate currentDate = LocalDate.now();
+        System.out.println("Current Date: " + currentDate);
+        LocalDate currentDate2 = currentDate.minusYears(2);
+        System.out.println("Current Date - 2 years: " + currentDate2);
+
 
 
 
@@ -106,28 +113,6 @@ public class MovieCollectionController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        tblGenre.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
-            if ( newValue != null ) {
-                try {
-                    lstGenreMovies.setItems(movieCollectionModel.getMoviesForGenre(newValue));
-                    lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
-                        if ( newMovie != null ) {
-                            selectedMovie = (MovieCollection) newMovie;
-                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
-                        }
-
-
-                    });
-
-
-                } catch (Exception e) {
-                    displayError(e);
-                }
-            } else {
-                lstGenreMovies.setItems(FXCollections.observableArrayList());
-            }
-        });
 
 
 
@@ -295,4 +280,42 @@ public class MovieCollectionController implements Initializable {
         MovieCollection selectedMovie = tblMovies.getSelectionModel().getSelectedItem();
         return selectedMovie;
     }
+
+  public MovieCollection oldShittyMovies() {
+    try {
+            List<MovieCollection> movies = movieCollectionModel.checkIfOldShit();
+            if (!movies.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Movies Unplayed for 2 Years with Low Score");
+                alert.setHeaderText(null);
+                alert.setContentText("There are movies that have been unplayed for 2 years and have a score under 6.");
+                alert.showAndWait();
+            }
+        } catch (Exception e) {
+            displayError(e);
+        }
+=======
+        tblGenre.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
+            if ( newValue != null ) {
+                try {
+                    lstGenreMovies.setItems(movieCollectionModel.getMoviesForGenre(newValue));
+                    lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
+                        if ( newMovie != null ) {
+                            selectedMovie = (MovieCollection) newMovie;
+                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
+                        }
+
+
+                    });
+
+
+                } catch (Exception e) {
+                    displayError(e);
+                }
+            } else {
+                lstGenreMovies.setItems(FXCollections.observableArrayList());
+            }
+        });
+  
+  }
 }

@@ -4,6 +4,9 @@ import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import dk.easv.privatemoviecollection.BLL.Util.MovieSearcher;
@@ -56,5 +59,19 @@ public class MovieCollectionManager {
 
     public List<MovieCollection> getMoviesForGenre(int genreId) throws Exception {
         return dataAccess.getMoviesForGenre(genreId);
+    }
+
+    public List<MovieCollection> checkIfOldShit() throws Exception {
+        List<MovieCollection> allMovies = getAllMovies();
+        LocalDate twoYearsAgold = LocalDate.now().minusYears(2);
+        Date twoYearsAgo = Date.valueOf(twoYearsAgold);
+        List<MovieCollection> oldBadMovies = new ArrayList<>();
+
+        for (MovieCollection movie : allMovies) {
+            if (movie.getLastviewed().before(twoYearsAgo) && movie.getRating() <= 6) {
+                oldBadMovies.add(movie);
+            }
+        }
+    return oldBadMovies;
     }
 }

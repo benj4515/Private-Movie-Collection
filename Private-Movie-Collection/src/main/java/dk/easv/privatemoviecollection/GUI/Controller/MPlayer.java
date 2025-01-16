@@ -47,21 +47,6 @@ public class MPlayer extends BorderPane {
         */
 
     }
-    public void initialize(String file){
-        media = new Media(file);
-        player = new MediaPlayer(media);
-        view = new MediaView(player);
-        mpane = new Pane();
-        mpane.getChildren().add(view); // Calling the function getChildren
-
-
-        // inorder to add the view
-        setCenter(mpane);
-        bar = new MediaBar(player); // Passing the player to MediaBar
-        setBottom(bar); // Setting the MediaBar at bottom
-        setStyle("-fx-background-color:#bfc2c7"); // Adding color to the mediabar
-        //player.play(); // Making the video play
-    }
     public void setParent(MovieCollectionController parentParam) {
         this.movieCollectionController = parentParam;
     }

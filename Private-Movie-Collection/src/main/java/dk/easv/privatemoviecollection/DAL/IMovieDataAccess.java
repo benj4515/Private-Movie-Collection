@@ -20,7 +20,10 @@ public interface IMovieDataAccess {
 
     List<Genre> getAllGenres() throws Exception;
 
+
+
     //List<MovieCollection> getMovieCollectionsByGenre(String genre) throws Exception;
+
 
     List<MovieCollection> getMoviesForGenre(int genreId) throws Exception;
 

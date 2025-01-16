@@ -103,6 +103,7 @@ public class MovieCollectionModel {
         return null;
     }
 
+
     public void updateGenre(Genre genre, ObservableList<MovieCollection> movies) throws Exception {
         movieCollectionManager.updateGenre(genre, movies);
 

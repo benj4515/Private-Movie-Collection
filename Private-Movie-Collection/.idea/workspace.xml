@@ -6,10 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="c8ef1b59-a2ce-488d-b846-f94bd7817da0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
     </list>
     <list id="f2f2fb27-5841-483d-8715-8cf5b86a82cb" name="Changes by mathi" comment="" />
-    <list id="3bcc4440-dc98-4bf8-8b96-08bdd5b0da6c" name="Changes by victo" comment="" />
+    <list id="3bcc4440-dc98-4bf8-8b96-08bdd5b0da6c" name="Changes by victo" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MPlayer.java" afterDir="false" />
+    </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -43,7 +54,10 @@
     "url": "https://github.com/benj4515/Private-Movie-Collection.git",
     "accountId": "32be2461-9c47-4ba4-939c-1183e76d8504"
   }
-}]]></component>
+
+}</component>
+
+
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -62,31 +76,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DBConnector.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Benjamin Davgaard/Documents/GitHub/Private-Movie-Collection/Private-Movie-Collection/src/main/resources/Movies&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.38965517&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DBConnector.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Unplayed-or-BadScore",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Benjamin Davgaard/Documents/GitHub/Private-Movie-Collection/Private-Movie-Collection/src/main/resources/Movies",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.38965517",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Benjamin Davgaard\Documents\GitHub\Private-Movie-Collection\Private-Movie-Collection\src\main\resources\Movies" />
@@ -157,8 +171,10 @@
       <workItem from="1736757530497" duration="7150000" />
       <workItem from="1736849156730" duration="5777000" />
       <workItem from="1736855414084" duration="545000" />
-      <workItem from="1736930812861" duration="11049000" />
-      <workItem from="1736950446931" duration="17720000" />
+
+      <workItem from="1736930812861" duration="11289000" />
+      <workItem from="1736973116363" duration="11215000" />
+
     </task>
     <servers />
   </component>

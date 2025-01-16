@@ -33,7 +33,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 String name = rs.getString("name");
                 double rating = rs.getDouble("rating");
                 String path = rs.getString("filelink");
-                String lastviewed = rs.getString("lastview");
+                Date lastviewed = rs.getDate("lastview");
                 String genre = rs.getString("genre");
                 double duration = rs.getDouble("duration");
 
@@ -60,7 +60,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
             stmt.setString(1, newMovie.getName());
             stmt.setDouble(2, newMovie.getRating());
             stmt.setString(3, newMovie.getPath());
-            stmt.setString(4, newMovie.getLastviewed());
+            stmt.setDate(4, newMovie.getLastviewed());
             stmt.setString(5, newMovie.getGenre());
             stmt.setDouble(6, newMovie.getDuration());
 
@@ -84,7 +84,7 @@ public class MovieCollectionDAO implements IMovieDataAccess  {
                 stmt.setString(1,movie.getName());
                 stmt.setDouble(2,movie.getRating());
                 stmt.setString(3,movie.getPath());
-                stmt.setString(4,movie.getLastviewed());
+                stmt.setDate(4,movie.getLastviewed());
                 stmt.setString(5,movie.getGenre());
                 stmt.setDouble(6,movie.getDuration());
                 //stmt.setInt(7,movie.getId());
