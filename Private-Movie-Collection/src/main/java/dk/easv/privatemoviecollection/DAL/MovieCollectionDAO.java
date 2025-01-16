@@ -2,6 +2,7 @@ package dk.easv.privatemoviecollection.DAL;
 
 import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.sql.*;
@@ -167,10 +168,7 @@ public void deleteMovie(MovieCollection movie) throws Exception {
 
     */
 
-    @Override
-    public void updateGenre(Genre genre, List<MovieCollection> movies) throws Exception {
 
-    }
 
     public List<Genre> getAllGenres() throws Exception{
 
@@ -227,36 +225,76 @@ public void deleteMovie(MovieCollection movie) throws Exception {
         return movies;
     }
 
-    public void createGenre(String genre) throws Exception {
-        String insertCategory = "INSERT INTO dbo.Category (name) VALUES (?)";
+    @Override
+    public void updateGenre(Genre genreName, ObservableList<MovieCollection> movies) throws Exception {
+
+        String updateGenreSql = "UPDATE dbo.Category SET name = ? WHERE id = ?";
+        String deleteGenreMoviesSql = "DELETE FROM dbo.CatMovie WHERE catId = ?";
+        String insertGenreMoviesSql = "INSERT INTO dbo.CatMovie (catId, movieID) VALUES (?,?)";
 
         try (Connection conn = dbConnector.getConnection()){
             conn.setAutoCommit(false);
 
-            int CategoryId;
-            try (PreparedStatement stmt = conn.prepareStatement(insertCategory, Statement.RETURN_GENERATED_KEYS)) {
-                stmt.setString(1, genre);
+            try (PreparedStatement stmt = conn.prepareStatement(updateGenreSql)) {
+                stmt.setString(1, genreName.getGenre());
+                stmt.setInt(2, genreName.getId());
                 stmt.executeUpdate();
+            }
 
-                try (ResultSet rs = stmt.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        CategoryId = rs.getInt(1);
-                    } else{
-                        throw new Exception("Failed to get CategoryId");
-                    }
+            try (PreparedStatement stmt = conn.prepareStatement(deleteGenreMoviesSql)) {
+                stmt.setInt(1, genreName.getId());
+                stmt.executeUpdate();
+            }
+
+            try (PreparedStatement stmt = conn.prepareStatement(insertGenreMoviesSql)) {
+                for (MovieCollection movie : movies) {
+                    stmt.setInt(1, genreName.getId());
+                    stmt.setInt(2, movie.getId());
+                    stmt.addBatch();
+
                 }
+                stmt.executeBatch();
             }
             conn.commit();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-            throw new Exception("Couldn't create category in database");
+            throw new Exception("Couldn't update genre in database", e);
         }
     }
 
-/*    @Override
-    public void updateGenre(Genre genre, List<MovieCollection> selectedMovies) throws Exception {
 
-    }*/
+
+
+    public void deleteGenre(Genre genreName) throws Exception {
+
+        String deleteGenreMoviesSql = "DELETE FROM dbo.CatMovie WHERE catId = ?";
+        String deleteGenreSql = "DELETE FROM dbo.Category WHERE id = ?";
+
+        try (Connection conn = dbConnector.getConnection()){
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmt = conn.prepareStatement(deleteGenreMoviesSql)) {
+                stmt.setInt(1, genreName.getId());
+                stmt.executeUpdate();
+            }
+
+            try (PreparedStatement stmt = conn.prepareStatement(deleteGenreSql)) {
+                stmt.setInt(1, genreName.getId());
+                stmt.executeUpdate();
+            }
+
+            conn.commit();
+        }catch (SQLException e){
+            e.printStackTrace();
+            throw new Exception("Couldn't delete genre in database", e);
+        }
+    }
+
+
+
+
+
+
 
 }
 

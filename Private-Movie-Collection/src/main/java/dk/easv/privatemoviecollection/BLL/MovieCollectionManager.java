@@ -53,8 +53,8 @@ public class MovieCollectionManager {
         dataAccess.createGenre(genreName, selectedMovies);
     }
 
-    public void updateGenre(Genre genre, ObservableList<MovieCollection> movies) throws Exception {
-        dataAccess.updateGenre(genre, movies);
+    public void updateGenre(Genre genreName, ObservableList<MovieCollection> movies) throws Exception {
+        dataAccess.updateGenre(genreName, movies);
     }
 
     public List<MovieCollection> getMoviesForGenre(int genreId) throws Exception {

@@ -120,6 +120,10 @@ public class MovieCollectionModel {
         return FXCollections.observableArrayList(movies);
     }
 
+    public void deleteGenre(Genre genreName) throws Exception {
+        movieCollectionDAO.deleteGenre(genreName);
+    }
+
 
 
 }

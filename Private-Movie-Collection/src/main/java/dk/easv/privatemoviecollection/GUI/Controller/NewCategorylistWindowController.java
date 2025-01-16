@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class NewCategorylistWindowController {
 
-    public TextField playlistNameField;
+
 
 
     @FXML
@@ -88,7 +88,7 @@ public class NewCategorylistWindowController {
     @FXML
     private void onRemoveSong() {
         // this button removes the selected song from the selected playlist
-        MovieCollection selectedMovie = movieCollectionController.selectedMovie();
+        MovieCollection selectedMovie = lstSelectedMovies.getSelectionModel().getSelectedItem();
         if (selectedMovie != null) {
             selectedMovies.remove(selectedMovie);
         }
