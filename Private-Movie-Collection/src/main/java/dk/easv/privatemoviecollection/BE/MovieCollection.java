@@ -2,6 +2,7 @@ package dk.easv.privatemoviecollection.BE;
 
 import dk.easv.privatemoviecollection.BLL.MovieCollectionManager;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.text.SimpleDateFormat;
 
 public class MovieCollection {
@@ -10,12 +11,12 @@ public class MovieCollection {
     private String genre;
     private double rating;
     private String path;
-    private String lastviewed;
+    private Date lastviewed;
     private double duration;
     private int id;
 
 
-    public MovieCollection(String name, double rating,String path,String lastviewed, String genre, double duration) {
+    public MovieCollection(String name, double rating,String path,Date lastviewed, String genre, double duration) {
         this.name = name;
         this.rating = rating;
         this.genre = genre;
@@ -27,7 +28,7 @@ public class MovieCollection {
 
 
     //Overloaded constructor to allow us to use getId
-    public MovieCollection(int id, String name, double rating,String path, String lastviewed, String genre, double duration) {
+    public MovieCollection(int id, String name, double rating,String path, Date lastviewed, String genre, double duration) {
         this.id = id;
         this.name = name;
         this.rating = rating;
@@ -77,11 +78,11 @@ public class MovieCollection {
         this.path = path;
     }
 
-    public String getLastviewed() {
+    public Date getLastviewed() {
         return lastviewed;
     }
 
-    public void setLastviewed(String lastviewed) {
+    public void setLastviewed(Date lastviewed) {
         this.lastviewed = lastviewed;
     }
 

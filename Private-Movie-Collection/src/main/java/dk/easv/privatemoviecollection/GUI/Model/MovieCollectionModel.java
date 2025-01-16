@@ -105,6 +105,9 @@ public class MovieCollectionModel {
         return null;
     }
 
+    public List<MovieCollection> checkIfOldShit() throws Exception {
+        return movieCollectionManager.checkIfOldShit();
+    }
 
 
 }

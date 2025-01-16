@@ -73,7 +73,7 @@ public class NewMovieWindowController {
         String name = movieNameField.getText();
         String genre = genreField.getText();
         double duration = durationField.getText().isEmpty() ? 0.0 : Double.parseDouble(durationField.getText());
-        String lastviewed = lastOpenedField.getText();
+        Date lastviewed = Date.valueOf(lastOpenedField.getText());
         double rating = ratingField.getText().isEmpty() ? 0.0 : Double.parseDouble(ratingField.getText());
         String path = fileLocationField.getText();
         
