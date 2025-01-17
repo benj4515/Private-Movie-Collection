@@ -29,7 +29,7 @@ public class MediaBar extends HBox { // MediaBar extends Horizontal Box
 
         setAlignment(Pos.CENTER); // setting the HBox to center
         setPadding(new Insets(5, 10, 5, 10));
-        // Settih the preference for volume bar
+        // Setting the preference for volume bar
         vol.setPrefWidth(70);
         vol.setMinWidth(30);
         vol.setValue(100);

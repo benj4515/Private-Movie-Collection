@@ -38,7 +38,7 @@ public class MPlayer extends BorderPane {
 
 
     public MPlayer() { //constructor
-        //movieCollectionController = new MovieCollectionController();
+
     }
     public void initialize() {
     }
@@ -49,8 +49,6 @@ public class MPlayer extends BorderPane {
 
     public void setup() {
        String path = movieCollectionController.selectedMovie().getPath();
-
-       //String path = "\\github\\Private-Movie-Collection\\Private-Movie-Collection\\src\\main\\resources\\Movies\\Borat.mp4";
         media = new Media(new File(path).toURI().toString());
         player = new MediaPlayer(media);
         view = new MediaView(player);
@@ -65,18 +63,10 @@ public class MPlayer extends BorderPane {
         // Maintain aspect ratio
         mpane.getChildren().clear();
         mpane.getChildren().add(view);
-
-        //view.setFitHeight(this.getHeight());
-        //view.setFitWidth(this.getWidth());
-        ;
         // inorder to add the view
-        //setCenter(mpane);
         bar = new MediaBar(player); // Passing the player to MediaBar
         setBottom(bar); // Setting the MediaBar at bottom
         setStyle("-fx-background-color:#bfc2c7"); // Adding color to the mediabar
         player.play();
-        //player.setAutoPlay(true); // Making the video play
     }
 }
-
-

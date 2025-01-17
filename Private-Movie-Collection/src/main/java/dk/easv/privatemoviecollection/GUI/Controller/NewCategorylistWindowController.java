@@ -36,18 +36,21 @@ public class NewCategorylistWindowController {
     private MovieCollectionController movieCollectionController;
     private int currentGenreId;
 
+
+    // this method sets the movie collection model
     public void setMovieCollectionModel(MovieCollectionModel model) {
         this.movieCollectionModel = model;
         loadAvailableMovies();
     }
 
     public void loadGenreData(Genre genre, ObservableList<MovieCollection> movies) {
-        // this method
+        // this method loads the data of the genrelist
         genrelistNameField.setText(genre.getGenre());
         selectedMovies.setAll(movies);
         currentGenreId = genre.getId();
     }
 
+    // this method sets the movie collection controller
     public void setMovieCollectionController(MovieCollectionController movieCollectionController) {
         this.movieCollectionController = movieCollectionController;
     }
@@ -140,6 +143,4 @@ public class NewCategorylistWindowController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
 }

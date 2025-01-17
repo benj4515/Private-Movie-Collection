@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 
 public class MovieCollection {
 
+
+    //MovieCollection class with various instance variables
     private String name;
     private String genre;
     private double rating;
@@ -15,12 +17,13 @@ public class MovieCollection {
     private double duration;
     private int id;
 
+    //Overridden toString method to return name
     @Override
     public String toString() {
         return name;
     }
 
-    //Overloaded constructor to allow us to use getId
+    //Constructor for MovieCollection class
     public MovieCollection(int id, String name, double rating,String path, Date lastviewed, String genre, double duration) {
         this.id = id;
         this.name = name;

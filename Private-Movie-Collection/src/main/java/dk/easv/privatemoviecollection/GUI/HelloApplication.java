@@ -24,9 +24,7 @@ import java.io.File;
 
 
 public class HelloApplication extends Application {
-    /*MPlayer player;
-    FileChooser fileChooser;
-*/
+
     @Override
     public void start(Stage stage) throws IOException {
 

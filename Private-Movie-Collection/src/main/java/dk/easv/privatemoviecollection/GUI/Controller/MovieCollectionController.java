@@ -40,6 +40,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class MovieCollectionController implements Initializable {
+
+    // This class is used to control the MovieCollection.fxml file
     public TableView<MovieCollection> tblMovies;
     public TableColumn<MovieCollection, String> colMovie;
     public TableColumn<MovieCollection, String> colGenre;
@@ -50,18 +52,18 @@ public class MovieCollectionController implements Initializable {
     public Button btnAddGenre;
     public ListView lstGenreMovies;
     public Button btnEditGenre;
+    public TableColumn<Genre, String> colCat;
+
     private MovieCollectionModel movieCollectionModel;
     @FXML
     private TextField txtSearchMovie;
     @FXML
-    private TextField txtSearchGenre;
-    @FXML
     private TableView<Genre> tblGenre;
-    public TableColumn<Genre, String> colCat;
     private MovieCollection selectedMovie;
 
 
 
+    // This is the constructor for the MovieCollectionController
     public MovieCollectionController() {
 
         try {
@@ -71,11 +73,11 @@ public class MovieCollectionController implements Initializable {
             e.printStackTrace();
         }
         System.out.println(movieCollectionModel.getObservableMovies());
-        //initialize( movieCollectionManager);
     }
 
+    // This method displays an error message
     private void displayError(Exception e) {
-        // displays if any error occours
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(e.getMessage());
@@ -83,17 +85,14 @@ public class MovieCollectionController implements Initializable {
     }
 
 
+    // This method initializes the MovieCollection.fxml file
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        LocalDate currentDate = LocalDate.now();
-        System.out.println("Current Date: " + currentDate);
-        LocalDate currentDate2 = currentDate.minusYears(2);
-        System.out.println("Current Date - 2 years: " + currentDate2);
-
-
+        //runs the OldShittyMovies method on initialize to look for old and/or bad movies.
         oldShittyMovies();
 
+        // This sets the cell value factory for the tableview
         colMovie.setCellValueFactory(new PropertyValueFactory<>("name"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
@@ -101,10 +100,11 @@ public class MovieCollectionController implements Initializable {
         colRating.setCellValueFactory(new PropertyValueFactory<>("rating"));
         colCat.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
+        // This sets the items in the tableview and adds a listener to the search bar
         tblMovies.setItems(movieCollectionModel.getObservableMovies());
-
-
         txtSearchMovie.textProperty().addListener((_, _, newValue) -> {
+
+            // This tries to search for movies. If it fails, it displays an error message
             try {
                 movieCollectionModel.searchMovies(newValue);
             } catch (Exception e) {
@@ -114,15 +114,14 @@ public class MovieCollectionController implements Initializable {
         });
 
 
+        //this sets the items for the genre table.
         try {
             tblGenre.setItems(movieCollectionModel.getAllGenres());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
-
-
+        //this checks if a genre is selected and sets the items for the movie list.
         tblGenre.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
             if ( newValue != null ) {
                 try {
@@ -131,7 +130,6 @@ public class MovieCollectionController implements Initializable {
                     lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
                         if ( newMovie != null ) {
                             selectedMovie = (MovieCollection) newMovie;
-                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
                         }
 
 
@@ -150,13 +148,16 @@ public class MovieCollectionController implements Initializable {
 
     }
 
-
+    // This method is called when the "Add movie" button is clicked
     @FXML
     private NewMovieWindowController onNewMovieButtonClick(ActionEvent actionEvent) {
         try {
+
+            // This creates a new FXMLLoader object and loads the NewMovieWindow.fxml file
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/NewMovieWindow.fxml"));
 
+            // This creates a new parent object and a new stage object. It sets the scene to the parent object and the title to "Add movie"
             Parent scene = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(scene));
@@ -178,6 +179,7 @@ public class MovieCollectionController implements Initializable {
         return null;
     }
 
+    // This method is called when the "Delete movie" button is clicked
     @FXML
     private void onDeleteMovieButtonClick(ActionEvent actionEvent) throws Exception {
         //Confirmation dialog
@@ -221,25 +223,27 @@ public class MovieCollectionController implements Initializable {
     }
 
 
+    //this method is called when the New button in the lower left corner is clicked
     @FXML
     private void onNewGenreButtonClick() throws IOException {
         try {
+
+            //this creates a new FXMLLoader object and loads the NewCategorylistWindow.fxml file
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/NewCategorylistWindow.fxml"));
 
+            //this creates a new parent object and a new stage object. It sets the scene to the parent object and the title to "Add Genre" and the controller to the loader
             Parent scene = loader.load();
-
             NewCategorylistWindowController playlistController = loader.getController();
             playlistController.setMovieCollectionModel(movieCollectionModel);
             playlistController.setMovieCollectionController(this);
-
             Stage stage = new Stage();
             stage.setScene(new Scene(scene));
             stage.setTitle("Add Genre");
 
 
 
-
+            //this sets the modality to Application (you must close "Add Genre" before going to the parent window)
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
 
@@ -250,58 +254,29 @@ public class MovieCollectionController implements Initializable {
 
     }
 
-    /*
-    MPlayer player;
-    FileChooser fileChooser;
-    */
+
+    //this method is called when the play button is clicked
     @FXML
     public MPlayer onPlayButtonClick(ActionEvent actionEvent) {
 
         try {
-            /*
-            // setting up the stages
-            MenuItem open = new MenuItem("Open");
-            Menu file = new Menu("File");
-            MenuBar menu = new MenuBar();
 
-            // Connecting the above three
-            file.getItems().add(open); // it would connect open with file
-            menu.getMenus().add(file);
-
-            // here you can choose any video
-            player = new MPlayer("fix file here so it uses "<----);
-
-            // Setting the menu at the top
-            player.setTop(menu);
-
-            // Adding player to the Scene
-            Scene scene = new Scene(player, 720, 535, Color.BLACK);
-
-            Stage stage = new Stage();
-            // height and width of the video player
-            // background color set to Black
-            stage.setScene(scene); // Setting the scene to stage
-            stage.show(); // Showing the stage
-*/
-
+            //this creates a new FXMLLoader object and loads the onPlayButtonWindow.fxml file
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/onPlayButtonWindow.fxml"));
 
-
+        //this creates a new parent object and a new stage object. It sets the scene to the parent object and the title to "MediaPlayer"
         Parent scene = loader.load();
-
         Stage stage = new Stage();
-
-
-            stage.setScene(new Scene(scene, 800,600));
+        stage.setScene(new Scene(scene, 800,600));
         stage.setTitle("MediaPlayer");
 
-
+        // Get the controller reference and set the parent
        MPlayer controller = loader.getController();
-
-      controller.setParent(this);
+        controller.setParent(this);
         controller.setup();
 
+        // Set the modality to Application (you must close "MediaPlayer" before going to the parent window)
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
 
@@ -312,6 +287,7 @@ public class MovieCollectionController implements Initializable {
         return null;
     }
 
+    //this returns the selected movie in the tableview
     public MovieCollection selectedMovie(){
 
         MovieCollection selectedMovie = tblMovies.getSelectionModel().getSelectedItem();
@@ -319,14 +295,18 @@ public class MovieCollectionController implements Initializable {
     }
 
 
+    //this method is called when the edit button is clicked
     public void OnEditGenreClicked(ActionEvent actionEvent) throws Exception {
 
+        //this gets the selected genre
         Genre selectedGenre = tblGenre.getSelectionModel().getSelectedItem();
 
+        //this creates a new FXMLLoader object and loads the NewCategorylistWindow.fxml file
         if (selectedGenre != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dk/easv/privatemoviecollection/NewCategorylistWindow.fxml"));
-            Parent scene = loader.load();
 
+            //this creates a new parent object and a new stage object. It sets the scene to the parent object and the title to "Edit Genre", the controller to the loader and the modality to Application
+            Parent scene = loader.load();
             NewCategorylistWindowController categoryController = loader.getController();
             categoryController.setMovieCollectionModel(movieCollectionModel);
             categoryController.setMovieCollectionController(this);
@@ -343,11 +323,14 @@ public class MovieCollectionController implements Initializable {
 
     }
 
+    //this method is called when the delete button is clicked
     @FXML
     private void onDeleteGenreButtonPressed() throws Exception {
 
+        //this gets the selected genre
         Genre selectedGenre = tblGenre.getSelectionModel().getSelectedItem();
 
+        //this deletes the genre and refreshes the table
         if (selectedGenre != null) {
             movieCollectionModel.deleteGenre(selectedGenre);
             tableRefresh();
@@ -356,19 +339,19 @@ public class MovieCollectionController implements Initializable {
         }
     }
 
+    //this method is called at the start of the application to check if there is any old and/or bad movies.
   public void oldShittyMovies() {
     try {
+        //call the method from within the movieCollectionModel
         movieCollectionModel.checkIfOldShit();
-    } catch (Exception e) {
+    }
+    //if the check finds anything, it will throw an exception and display an alert
+    catch (Exception e) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Old or bad movie");
         alert.setHeaderText("This movie either has a score of less than 6, or has not been viewed in the last 2 years");
         alert.setContentText(e.getMessage());
         alert.showAndWait();
     }
-
-
-
-
   }
 }

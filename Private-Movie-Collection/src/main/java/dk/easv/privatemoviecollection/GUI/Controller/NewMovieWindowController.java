@@ -45,6 +45,7 @@ public class NewMovieWindowController {
         alert.showAndWait();
     }
 
+    // instantiates the MovieCollectionModel as a new MovieCollectionModel
     public NewMovieWindowController(){
 
         try{
@@ -55,13 +56,12 @@ public class NewMovieWindowController {
             e.printStackTrace();
         }
     }
-    public void setMovieCollectionController(MovieCollectionController movieCollectionController) {
-        this.movieCollectionController = movieCollectionController;
-    }
 
+    //this method handles the submit button
     @FXML
     private void handleSubmit() throws Exception {
 
+        //gets the text from the textfields
         String name = movieNameField.getText();
         String genre = genreField.getText();
         String sduration = durationField.getText();
@@ -70,6 +70,7 @@ public class NewMovieWindowController {
         String path = fileLocationField.getText();
         
 
+        //if any empty fields report an error
         if (name.isEmpty() || genre.isEmpty() || sduration.isEmpty() || slastviewed.isEmpty() || srating.isEmpty() || path.isEmpty()) {
             showAlert("Validation Error", "Please fill in all fields.");
             return;
@@ -101,7 +102,7 @@ public class NewMovieWindowController {
 
 
 
-
+        //prints the text from the textfields
         System.out.println("Movie Name: " + name);
         System.out.println("Genre: " + genre);
         System.out.println("Duration: " + sduration);
@@ -109,33 +110,39 @@ public class NewMovieWindowController {
         System.out.println("Rating: " + srating);
         System.out.println("File Location: " + path);
 
+        //parsing the text from the textfields
         double rating = Double.parseDouble(srating);
         double duration = Double.parseDouble(sduration);
         Date lastviewed = Date.valueOf(slastviewed);
 
+        //creates a new movie with the parsed text
         MovieCollection newMovie = new MovieCollection(-1,name,rating,path,lastviewed,genre,duration);
 
+        //create the newMovie object in the database
         MovieCollectionModel.createMovie(newMovie);
         System.out.println("New Movie Added" + newMovie);
 
 
-
+        //refreshes the tableview
         if(movieCollectionController != null){
             movieCollectionController.tableRefresh();
         }
 
+        //closes the window
         Stage stage = (Stage) addMovieButton.getScene().getWindow();
         stage.close();
     }
 
 
 
+    //cancel button handeling
     @FXML
     private void handleCancel() {
         Stage stage = (Stage) movieNameField.getScene().getWindow();
         stage.close();
     }
 
+    //this method shows an alert
     private void showAlert(String title, String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(title);
@@ -144,6 +151,7 @@ public class NewMovieWindowController {
         alert.showAndWait();
     }
 
+    //set parent method
     public void setParent(MovieCollectionController parentParam) {
         this.movieCollectionController = parentParam;
     }

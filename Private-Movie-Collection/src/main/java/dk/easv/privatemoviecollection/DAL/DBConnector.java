@@ -13,8 +13,10 @@ import java.util.Properties;
 
 
 
+//this class is our connection to the DB
 public class DBConnector {
 
+    //this is the path to the config file and the sql server
     private static final String PROP_FILE = "config/config.settings";
     private final SQLServerDataSource dataSource;
 
