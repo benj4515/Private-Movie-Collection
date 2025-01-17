@@ -50,7 +50,7 @@ public class MPlayer extends BorderPane {
     public void setup() {
        String path = movieCollectionController.selectedMovie().getPath();
 
-       //String path = "C:\\github\\Private-Movie-Collection\\Private-Movie-Collection\\src\\main\\resources\\Movies\\Borat.mp4";
+       //String path = "\\github\\Private-Movie-Collection\\Private-Movie-Collection\\src\\main\\resources\\Movies\\Borat.mp4";
         media = new Media(new File(path).toURI().toString());
         player = new MediaPlayer(media);
         view = new MediaView(player);
