@@ -264,7 +264,7 @@ public class MovieCollectionController implements Initializable {
         Stage stage = new Stage();
 
 
-            stage.setScene(new Scene(scene, 500,400));
+            stage.setScene(new Scene(scene, 800,600));
         stage.setTitle("MediaPlayer");
 
 
