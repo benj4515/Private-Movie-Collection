@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c8ef1b59-a2ce-488d-b846-f94bd7817da0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BE/MovieCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/BLL/MovieCollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/IMovieDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/DAL/MovieCollectionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/MovieCollectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewCategorylistWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewCategorylistWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Model/MovieCollectionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dk/easv/privatemoviecollection/MovieCollection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java" afterDir="false" />
     </list>
     <list id="f2f2fb27-5841-483d-8715-8cf5b86a82cb" name="Changes by mathi" comment="" />
     <list id="3bcc4440-dc98-4bf8-8b96-08bdd5b0da6c" name="Changes by victo" comment="" />
@@ -106,21 +100,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Category",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Category&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Benjamin Davgaard\Documents\GitHub\Private-Movie-Collection\Private-Movie-Collection\src\main\resources\Movies" />
@@ -166,8 +160,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
       </set>
     </attachedChunks>
   </component>
@@ -195,18 +189,30 @@
       <workItem from="1736973116363" duration="11215000" />
       <workItem from="1737026990596" duration="4254000" />
       <workItem from="1737038716405" duration="8389000" />
+      <workItem from="1737105913105" duration="2781000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dk/easv/privatemoviecollection/GUI/Controller/NewMovieWindowController.java</url>
-          <line>118</line>
+          <line>122</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
