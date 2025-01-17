@@ -35,15 +35,7 @@ public class NewMovieWindowController {
     @FXML
     private Button cancelButton;
     private MovieCollectionController movieCollectionController;
-    @FXML
-    private ComboBox genreDropDown;
-
-    @FXML
-    public void initialize() {
-        genreDropDown.getItems().addAll("Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Horror", "Mystery", "Philosophical", "Political", "Romance", "Saga", "Satire", "Science fiction", "Social", "Speculative", "Thriller", "Urban", "Western");
-    }
-
-
+    
 
     private void displayError(Throwable t) {
         // This display if any error occours
@@ -71,7 +63,7 @@ public class NewMovieWindowController {
     private void handleSubmit() throws Exception {
 
         String name = movieNameField.getText();
-        String genre = genreDropDown.getValue().toString();
+        String genre = genreField.getText();
         String sduration = durationField.getText();
         String slastviewed = lastOpenedField.getText();
         String srating = ratingField.getText();

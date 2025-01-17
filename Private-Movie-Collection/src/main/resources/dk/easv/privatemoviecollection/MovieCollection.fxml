@@ -10,23 +10,22 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="955.0" prefWidth="2165.0" spacing="20.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.privatemoviecollection.GUI.Controller.MovieCollectionController">
+<VBox alignment="CENTER" prefHeight="850.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.privatemoviecollection.GUI.Controller.MovieCollectionController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
       <HBox prefHeight="30.0" prefWidth="1825.0">
          <children>
-            <HBox prefHeight="35.0" prefWidth="1452.0">
+            <HBox prefHeight="30.0" prefWidth="992.0">
                <children>
-                  <TextField fx:id="txtSearchGenre" promptText="Search..." style="-fx-background-color: grey; -fx-background-radius: 10;" />
+                  <TextField fx:id="txtSearchMovie" prefHeight="26.0" prefWidth="185.0" promptText="Search..." style="-fx-background-color: grey; -fx-background-radius: 10;">
+                     <HBox.margin>
+                        <Insets left="400.0" />
+                     </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField fx:id="txtSearchMovie" promptText="Search..." style="-fx-background-color: grey; -fx-background-radius: 10;" />
-               </children>
-            </HBox>
+            <HBox prefHeight="30.0" prefWidth="91.0" />
          </children>
       </HBox>
       <HBox prefHeight="575.0" prefWidth="1392.0">
@@ -65,7 +64,6 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox fx:id="hboxPlayer" prefHeight="575.0" prefWidth="1072.0" style="-fx-background-color: grey;" />
             <HBox prefHeight="575.0" prefWidth="582.0">
                <children>
                   <TableView fx:id="tblMovies" prefHeight="575.0" prefWidth="563.0">
@@ -85,53 +83,44 @@
          <children>
             <HBox prefHeight="63.0" prefWidth="384.0">
                <children>
-                  <HBox prefHeight="63.0" prefWidth="105.0">
+                  <HBox prefHeight="63.0" prefWidth="117.0">
                      <children>
                         <Button fx:id="btnAddGenre" mnemonicParsing="false" onAction="#onNewGenreButtonClick" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
                         <Button fx:id="btnEditGenre" mnemonicParsing="false" onAction="#OnEditGenreClicked" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Edit" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="63.0" prefWidth="258.0">
                      <children>
                         <Button fx:id="btnDeleteGenre" mnemonicParsing="false" onAction="#onDeleteGenreButtonPressed" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
                      </children>
                   </HBox>
                </children>
             </HBox>
-            <HBox prefHeight="63.0" prefWidth="1066.0">
+            <HBox prefHeight="63.0" prefWidth="279.0">
                <children>
-                  <HBox prefHeight="63.0" prefWidth="395.0" />
-                  <HBox prefHeight="63.0" prefWidth="273.0">
+                  <HBox prefHeight="63.0" prefWidth="198.0" />
+                  <HBox prefHeight="63.0" prefWidth="188.0">
                      <children>
-                        <HBox prefHeight="63.0" prefWidth="115.0">
-                           <children>
-                              <Button fx:id="btnLast" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Last" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="63.0" prefWidth="130.0">
+                        <HBox prefHeight="63.0" prefWidth="115.0" />
+                        <HBox prefHeight="63.0" prefWidth="104.0">
                            <children>
                               <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#onPlayButtonClick" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Play" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="63.0" prefWidth="60.0">
-                           <children>
-                              <Button fx:id="btnNext" mnemonicParsing="false" prefHeight="40.0" prefWidth="57.0" style="-fx-background-radius: 30; -fx-background-color: grey;" text="Next" />
-                           </children>
-                        </HBox>
+                        <HBox prefHeight="63.0" prefWidth="60.0" />
                         <HBox prefHeight="63.0" prefWidth="31.0" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="63.0" prefWidth="334.0" />
                </children>
             </HBox>
             <HBox prefHeight="63.0" prefWidth="204.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="63.0" prefWidth="146.0">
                      <children>
                         <Button fx:id="btnAddMovie" mnemonicParsing="false" onAction="#onNewMovieButtonClick" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="63.0" prefWidth="234.0">
                      <children>
                         <Button fx:id="btnDeleteMovie" mnemonicParsing="false" onAction="#onDeleteMovieButtonClick" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
                      </children>

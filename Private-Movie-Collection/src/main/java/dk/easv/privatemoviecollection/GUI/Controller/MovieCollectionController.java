@@ -172,6 +172,7 @@ public class MovieCollectionController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (Exception e) {
+            e.printStackTrace();
             displayError(e);
         }
         return null;
