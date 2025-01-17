@@ -85,12 +85,11 @@ public class MovieCollectionModel {
         moviesToBeViewed.remove(selectedMovie);
     }
 
-    public ObservableList<Genre> getAllGenres() throws Exception{
+    public ObservableList<Genre> getAllGenres() throws Exception {
 
         List<Genre> genres = movieCollectionManager.getAllGenres();
         return FXCollections.observableArrayList(genres);
     }
-
 
 
     public Genre getGenreById(int id) throws Exception {
@@ -120,6 +119,16 @@ public class MovieCollectionModel {
         return FXCollections.observableArrayList(movies);
     }
 
+    public void deleteGenre(Genre genreName) throws Exception {
+        movieCollectionDAO.deleteGenre(genreName);
+    }
 
 
+    public List<MovieCollection> checkIfOldShit() {
+        try {
+            return movieCollectionManager.checkIfOldShit();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

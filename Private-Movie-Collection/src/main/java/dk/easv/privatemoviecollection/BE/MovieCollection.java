@@ -15,12 +15,10 @@ public class MovieCollection {
     private double duration;
     private int id;
 
-
-
-
-
-
-
+    @Override
+    public String toString() {
+        return name;
+    }
 
     //Overloaded constructor to allow us to use getId
     public MovieCollection(int id, String name, double rating,String path, Date lastviewed, String genre, double duration) {

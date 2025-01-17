@@ -53,8 +53,8 @@ public class MovieCollectionManager {
         dataAccess.createGenre(genreName, selectedMovies);
     }
 
-    public void updateGenre(Genre genre, ObservableList<MovieCollection> movies) throws Exception {
-        dataAccess.updateGenre(genre, movies);
+    public void updateGenre(Genre genreName, ObservableList<MovieCollection> movies) throws Exception {
+        dataAccess.updateGenre(genreName, movies);
     }
 
     public List<MovieCollection> getMoviesForGenre(int genreId) throws Exception {
@@ -66,12 +66,27 @@ public class MovieCollectionManager {
         LocalDate twoYearsAgold = LocalDate.now().minusYears(2);
         Date twoYearsAgo = Date.valueOf(twoYearsAgold);
         List<MovieCollection> oldBadMovies = new ArrayList<>();
+        StringBuilder message = new StringBuilder();
 
         for (MovieCollection movie : allMovies) {
-            if (movie.getLastviewed().before(twoYearsAgo) && movie.getRating() <= 6) {
+            boolean isOld = movie.getLastviewed().before(twoYearsAgo);
+            boolean isBad = movie.getRating() <= 6;
+            if (isOld || isBad) {
                 oldBadMovies.add(movie);
+                message.append("Movie: ").append(movie.getName()).append(" - ");
             }
+            if (isOld) {
+                message.append("Unseen for Two Years ");
+            }
+            if (isBad) {
+                message.append("Rating is 6 or lower ");
+            }
+            message.append("\n");
         }
-    return oldBadMovies;
+        if (!oldBadMovies.isEmpty()) {
+            throw new Exception("This movie is either old or bad: \n" + message);
+        }
+
+        return oldBadMovies;
     }
 }

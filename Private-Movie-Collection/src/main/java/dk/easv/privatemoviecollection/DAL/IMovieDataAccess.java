@@ -2,6 +2,7 @@ package dk.easv.privatemoviecollection.DAL;
 
 import dk.easv.privatemoviecollection.BE.Genre;
 import dk.easv.privatemoviecollection.BE.MovieCollection;
+import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -27,5 +28,5 @@ public interface IMovieDataAccess {
 
     List<MovieCollection> getMoviesForGenre(int genreId) throws Exception;
 
-    void updateGenre(Genre genre, List<MovieCollection> movies) throws Exception;
+    void updateGenre(Genre genreName, ObservableList<MovieCollection> movies) throws Exception;
 }

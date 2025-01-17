@@ -85,14 +85,15 @@
          <children>
             <HBox prefHeight="63.0" prefWidth="384.0">
                <children>
-                  <HBox prefHeight="63.0" prefWidth="88.0">
+                  <HBox prefHeight="63.0" prefWidth="105.0">
                      <children>
                         <Button fx:id="btnAddGenre" mnemonicParsing="false" onAction="#onNewGenreButtonClick" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="New" />
+                        <Button fx:id="btnEditGenre" mnemonicParsing="false" onAction="#OnEditGenreClicked" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Edit" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnDeleteGenre" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
+                        <Button fx:id="btnDeleteGenre" mnemonicParsing="false" onAction="#onDeleteGenreButtonPressed" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: grey; -fx-background-radius: 10;" text="Delete" />
                      </children>
                   </HBox>
                </children>

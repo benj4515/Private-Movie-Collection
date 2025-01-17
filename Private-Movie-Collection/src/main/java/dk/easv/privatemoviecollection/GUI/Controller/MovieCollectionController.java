@@ -46,6 +46,7 @@ public class MovieCollectionController implements Initializable {
     public Button btnDeleteMovie;
     public Button btnAddGenre;
     public ListView lstGenreMovies;
+    public Button btnEditGenre;
     private MovieCollectionModel movieCollectionModel;
     @FXML
     private TextField txtSearchMovie;
@@ -88,7 +89,7 @@ public class MovieCollectionController implements Initializable {
         System.out.println("Current Date - 2 years: " + currentDate2);
 
 
-
+        oldShittyMovies();
 
         colMovie.setCellValueFactory(new PropertyValueFactory<>("name"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
@@ -308,26 +309,56 @@ public class MovieCollectionController implements Initializable {
         return selectedMovie;
     }
 
-  /*public MovieCollection oldShittyMovies() {
-    try {
-            List<MovieCollection> movies = movieCollectionModel.checkIfOldShit();
-            if (!movies.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Movies Unplayed for 2 Years with Low Score");
-                alert.setHeaderText(null);
-                alert.setContentText("There are movies that have been unplayed for 2 years and have a score under 6.");
-                alert.showAndWait();
-            }
-        } catch (Exception e) {
-            displayError(e);
+    public void OnEditGenreClicked(ActionEvent actionEvent) throws Exception {
+
+        Genre selectedGenre = tblGenre.getSelectionModel().getSelectedItem();
+
+        if (selectedGenre != null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dk/easv/privatemoviecollection/NewCategorylistWindow.fxml"));
+            Parent scene = loader.load();
+
+            NewCategorylistWindowController categoryController = loader.getController();
+            categoryController.setMovieCollectionModel(movieCollectionModel);
+            categoryController.setMovieCollectionController(this);
+            categoryController.loadGenreData(selectedGenre, movieCollectionModel.getMoviesForGenre(selectedGenre));
+
+            Stage stage = new Stage();
+            stage.setTitle("Edit Genre");
+            stage.setScene(new Scene(scene));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } else {
+            System.out.println("No genre selected");
         }
 
-   */
+    }
+
+    @FXML
+    private void onDeleteGenreButtonPressed() throws Exception {
 
 
+        Genre selectedGenre = tblGenre.getSelectionModel().getSelectedItem();
 
-  
+        if (selectedGenre != null) {
+            movieCollectionModel.deleteGenre(selectedGenre);
+            tableRefresh();
+        }else {
+            System.out.println("No genre selected");
+        }
+    }
+
+  public void oldShittyMovies() {
+    try {
+        movieCollectionModel.checkIfOldShit();
+    } catch (Exception e) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Old or bad movie");
+        alert.setHeaderText("This movie either has a score of less than 6, or has not been viewed in the last 2 years");
+        alert.setContentText(e.getMessage());
+        alert.showAndWait();
+    }
+
   }
-
+}
 
 
