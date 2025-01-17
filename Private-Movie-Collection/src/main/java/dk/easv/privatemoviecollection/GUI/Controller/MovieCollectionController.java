@@ -89,7 +89,7 @@ public class MovieCollectionController implements Initializable {
         System.out.println("Current Date - 2 years: " + currentDate2);
 
 
-
+        oldShittyMovies();
 
         colMovie.setCellValueFactory(new PropertyValueFactory<>("name"));
         colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
@@ -347,26 +347,18 @@ public class MovieCollectionController implements Initializable {
         }
     }
 
-  /*public MovieCollection oldShittyMovies() {
+  public void oldShittyMovies() {
     try {
-            List<MovieCollection> movies = movieCollectionModel.checkIfOldShit();
-            if (!movies.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Movies Unplayed for 2 Years with Low Score");
-                alert.setHeaderText(null);
-                alert.setContentText("There are movies that have been unplayed for 2 years and have a score under 6.");
-                alert.showAndWait();
-            }
-        } catch (Exception e) {
-            displayError(e);
-        }
+        movieCollectionModel.checkIfOldShit();
+    } catch (Exception e) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Old or bad movie");
+        alert.setHeaderText("This movie either has a score of less than 6, or has not been viewed in the last 2 years");
+        alert.setContentText(e.getMessage());
+        alert.showAndWait();
+    }
 
-   */
-
-
-
-  
   }
-
+}
 
 
