@@ -71,22 +71,22 @@ public class NewMovieWindowController {
     private void handleSubmit() throws Exception {
 
         String name = movieNameField.getText();
-        String genre = genreField.getText();
-        double duration = durationField.getText().isEmpty() ? 0.0 : Double.parseDouble(durationField.getText());
-        Date lastviewed = Date.valueOf(lastOpenedField.getText());
-        double rating = ratingField.getText().isEmpty() ? 0.0 : Double.parseDouble(ratingField.getText());
+        String genre = genreDropDown.getValue().toString();
+        String sduration = durationField.getText();
+        String slastviewed = lastOpenedField.getText();
+        String srating = ratingField.getText();
         String path = fileLocationField.getText();
         
 
-       /* if (name.isEmpty() || genre.isEmpty() || duration.isEmpty() || lastviewed.isEmpty() || rating.isEmpty() || path.isEmpty()) {
+        if (name.isEmpty() || genre.isEmpty() || sduration.isEmpty() || slastviewed.isEmpty() || srating.isEmpty() || path.isEmpty()) {
             showAlert("Validation Error", "Please fill in all fields.");
             return;
         }
 
-        */
-        /*
+
+
         try {
-            int durationInt = Integer.parseInt(duration);
+            int durationInt = Integer.parseInt(sduration);
             if (durationInt <= 0) {
                 showAlert("Validation Error", "Duration must be a positive number.");
                 return;
@@ -97,7 +97,7 @@ public class NewMovieWindowController {
         }
 
         try {
-            double ratingDouble = Double.parseDouble(rating);
+            double ratingDouble = Double.parseDouble(srating);
             if (ratingDouble < 0 || ratingDouble > 10) {
                 showAlert("Validation Error", "Rating must be between 0 and 10.");
                 return;
@@ -107,15 +107,19 @@ public class NewMovieWindowController {
             return;
         }
 
-         */
+
 
 
         System.out.println("Movie Name: " + name);
         System.out.println("Genre: " + genre);
-        System.out.println("Duration: " + duration);
-        System.out.println("Last Opened: " + lastviewed);
-        System.out.println("Rating: " + rating);
+        System.out.println("Duration: " + sduration);
+        System.out.println("Last Opened: " + slastviewed);
+        System.out.println("Rating: " + srating);
         System.out.println("File Location: " + path);
+
+        double rating = Double.parseDouble(srating);
+        double duration = Double.parseDouble(sduration);
+        Date lastviewed = Date.valueOf(slastviewed);
 
         MovieCollection newMovie = new MovieCollection(-1,name,rating,path,lastviewed,genre,duration);
 
