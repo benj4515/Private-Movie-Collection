@@ -127,7 +127,7 @@ public class MovieCollectionController implements Initializable {
     private NewMovieWindowController onNewMovieButtonClick(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/New.fxml"));
+            loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/NewMovieWindow.fxml"));
 
             Parent scene = loader.load();
             Stage stage = new Stage();
@@ -262,27 +262,6 @@ public class MovieCollectionController implements Initializable {
         Parent scene = loader.load();
 
         Stage stage = new Stage();
-
-        /*
-            String path = "C:\\github\\Private-Movie-Collection\\Private-Movie-Collection\\src\\main\\resources\\Movies\\Borat.mp4";
-
-            //Instantiating Media class
-            Media media = new Media(new File(path).toURI().toString());
-
-            //Instantiating MediaPlayer class
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-
-            //Instantiating MediaView class
-            MediaView mediaView = new MediaView(mediaPlayer);
-
-            //by setting this property to true, the Video will be played
-            mediaPlayer.setAutoPlay(true);
-
-            //setting group and scene
-            Group root = new Group();
-            root.getChildren().add(mediaView);
-
-*/
 
 
             stage.setScene(new Scene(scene, 500,400));

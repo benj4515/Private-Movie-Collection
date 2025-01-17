@@ -71,11 +71,11 @@ public class MPlayer extends BorderPane {
         ;
         // inorder to add the view
         //setCenter(mpane);
-        // bar = new MediaBar(player); // Passing the player to MediaBar
-        // setBottom(bar); // Setting the MediaBar at bottom
-        //setStyle("-fx-background-color:#bfc2c7"); // Adding color to the mediabar
-        //player.Play()
-        player.setAutoPlay(true); // Making the video play
+        bar = new MediaBar(player); // Passing the player to MediaBar
+        setBottom(bar); // Setting the MediaBar at bottom
+        setStyle("-fx-background-color:#bfc2c7"); // Adding color to the mediabar
+        player.play();
+        //player.setAutoPlay(true); // Making the video play
     }
 }
 
