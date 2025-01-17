@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -20,7 +21,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -110,6 +113,7 @@ public class MovieCollectionController implements Initializable {
             }
         });
 
+
         try {
             tblGenre.setItems(movieCollectionModel.getAllGenres());
         } catch (Exception e) {
@@ -151,7 +155,7 @@ public class MovieCollectionController implements Initializable {
     private NewMovieWindowController onNewMovieButtonClick(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/New.fxml"));
+            loader.setLocation(getClass().getResource("/dk/easv/privatemoviecollection/NewMovieWindow.fxml"));
 
             Parent scene = loader.load();
             Stage stage = new Stage();
@@ -245,10 +249,10 @@ public class MovieCollectionController implements Initializable {
 
     }
 
-
+    /*
     MPlayer player;
     FileChooser fileChooser;
-
+    */
     @FXML
     public MPlayer onPlayButtonClick(ActionEvent actionEvent) {
 
@@ -284,14 +288,18 @@ public class MovieCollectionController implements Initializable {
 
 
         Parent scene = loader.load();
+
         Stage stage = new Stage();
-        stage.setScene(new Scene(scene));
+
+
+            stage.setScene(new Scene(scene, 800,600));
         stage.setTitle("MediaPlayer");
 
-        MPlayer controller = loader.getController();
 
-        controller.setParent(this);
+       MPlayer controller = loader.getController();
 
+      controller.setParent(this);
+        controller.setup();
 
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
@@ -309,6 +317,7 @@ public class MovieCollectionController implements Initializable {
         return selectedMovie;
     }
 
+<<<<<<< HEAD
     public void OnEditGenreClicked(ActionEvent actionEvent) throws Exception {
 
         Genre selectedGenre = tblGenre.getSelectionModel().getSelectedItem();
@@ -335,6 +344,30 @@ public class MovieCollectionController implements Initializable {
 
     @FXML
     private void onDeleteGenreButtonPressed() throws Exception {
+=======
+  public MovieCollection oldShittyMovies() {
+    try {
+            //List<MovieCollection> movies = movieCollectionModel.checkIfOldShit();
+            /*if (!movies.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Movies Unplayed for 2 Years with Low Score");
+                alert.setHeaderText(null);
+                alert.setContentText("There are movies that have been unplayed for 2 years and have a score under 6.");
+                alert.showAndWait();
+            }*/
+        } catch (Exception e) {
+            displayError(e);
+        }
+        tblGenre.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
+            if ( newValue != null ) {
+                try {
+                    lstGenreMovies.setItems(movieCollectionModel.getMoviesForGenre(newValue));
+                    lstGenreMovies.getSelectionModel().selectedItemProperty().addListener((_,_,newMovie) ->{
+                        if ( newMovie != null ) {
+                            selectedMovie = (MovieCollection) newMovie;
+                            //System.out.println("Selected song from genre: " + selectedMovie().getAddres);
+                        }
+>>>>>>> mediaplayer
 
 
         Genre selectedGenre = tblGenre.getSelectionModel().getSelectedItem();
@@ -358,6 +391,17 @@ public class MovieCollectionController implements Initializable {
         alert.showAndWait();
     }
 
+<<<<<<< HEAD
+=======
+                } catch (Exception e) {
+                    displayError(e);
+                }
+            } else {
+                lstGenreMovies.setItems(FXCollections.observableArrayList());
+            }
+        });
+    return null;
+>>>>>>> mediaplayer
   }
 }
 
